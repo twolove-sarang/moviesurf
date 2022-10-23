@@ -18,6 +18,7 @@ const MovieSurf = () => {
   return (
     <div>
       {currentMovie.results && <Banner movie={currentMovie.results[0]} />}
+      <div>개봉 예정 영화</div>
     </div>
   );
 };
