@@ -13,39 +13,42 @@ const Card = styled.div`
 
 //더보기 정렬
 const CardAlign = styled.div`
-  display: flex;
-  // justify-content: space-between;
+  display: flexbox;
+  overflow: scroll;
 `;
 
 const CardTitle = styled.div`
-  // display: flex;
-  // justify-content: space-between;
   color: white;
   font-size: 25px;
   font-weight: 700;
-  width: 1290px;
+  width: 1240px;
   text-align: left;
-  margin: 30px auto;
+  margin: 40px auto 10px;
 `;
 
 const CardMore = styled.div`
   font-size: 18px;
   color: #9f9f9f;
-  width: 80px;
+  // width: 50px;
+  display: flex;
+  align-items: center;
+  margin-top: 24px;
+  cursor : pointer;
 `;
 
-const CardSection = ({ movie }) => {
-  console.log("무비?", movie);
+// card를 5개씩 보여주고 싶어!
+const CardSection = ({ movie, name }) => {
+  // console.log("무비?", movie);
   return (
     <div>
       <CardAlign>
-        <CardTitle>개봉 예정 영화</CardTitle>
+        <CardTitle>{name}</CardTitle>
         <CardMore>더보기</CardMore>
       </CardAlign>
       <CardAlign>
-          {movie.results.map((item) => 
-            <Cards item={item} />
-          )}
+        {movie.results.map((item, index) => (
+          <Cards key={index} item={item} />
+        ))}
         {/* <Cards/>
         <Cards/>
         <Cards/>

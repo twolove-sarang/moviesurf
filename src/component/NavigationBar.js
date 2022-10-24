@@ -13,6 +13,7 @@ const Navigation = styled.div`
       font-size: 20px;
       padding: 30px;
       color: white;
+      cursor : pointer;
     `}
 `;
 
@@ -40,8 +41,8 @@ const NavigationBar = () => {
   const navigate = useNavigate();
   return (
     <Navigation>
-      <Navigation logo>MOVIE SURF🏄‍♂️</Navigation>
-      <NavigationButton style={{}} onClick={(goToHome) => navigate("/")}>
+      <Navigation logo onClick={(goToHome) => navigate("/")}>MOVIE SURF🏄‍♂️</Navigation>
+      <NavigationButton onClick={(goToHome) => navigate("/")}>
         홈
       </NavigationButton>
       <NavigationButton onClick={(goToCategorize) => navigate("/categorize")}>

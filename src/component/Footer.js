@@ -13,8 +13,8 @@ const Footer = () => {
     <div>
       <div>공지사항</div>
       <div>
-        {footerMenu.map((item) => 
-          <li>{item}</li>
+        {footerMenu.map((item,index) => 
+          <li key={index}>{item}</li>
         )}
       </div>
     </div>

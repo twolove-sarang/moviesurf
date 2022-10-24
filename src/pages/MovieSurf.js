@@ -22,9 +22,9 @@ const MovieSurf = () => {
   return (
     <div>
       {currentMovie.results && <Banner movie={currentMovie.results[14]} />}
-      {currentMovie.results && <CardSection movie={currentMovie} /> }
-      {upComingMovie.results && <CardSection movie={upComingMovie} /> }
-      {popularMovie.results && <CardSection movie={popularMovie} /> }
+      {upComingMovie.results && <CardSection movie={upComingMovie} name={"개봉 예정 영화"}/> }
+      {currentMovie.results && <CardSection movie={currentMovie} name={"최신 영화"}/> }
+      {popularMovie.results && <CardSection movie={popularMovie} name={"인기 있는 영화"}/> }
     </div>
   );
 };

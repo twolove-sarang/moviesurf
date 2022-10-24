@@ -8,10 +8,16 @@ const Card = styled.div`
   height: 400px;
   background-size: cover;
   margin: 4px 4px;
+  cursor : pointer;
+
+  // &:hover{
+  //   width:300px;
+  //   // overflow : auto;
+  }
 `;
 
 const Cards = ({ item }) => {
-  console.log("item?", item);
+  // console.log("item?", item);
   return (
       <Card
         style={{
