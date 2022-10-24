@@ -12,13 +12,16 @@ import { Route,Routes } from 'react-router';
 //data잘 들고왔나 useEffect로 확인하기
 function App() {
   return (
-    <div className='background'>
+    <div className='background-color'>
+
+    <div className='background-size'>
       <NavigationBar/>
       <Routes>
         <Route path='/' element={<MovieSurf/>}/>
         <Route path='/categorize' element={<Categorize/>}/>
         <Route path='/categorize/:id' element={<DetailPage/>}/>
       </Routes>
+    </div>
     </div>
   );
 }

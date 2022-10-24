@@ -25,6 +25,7 @@ const NavigationButton = styled.button`
   margin: 0px 15px;
 `;
 
+
 const NavigationInput = styled.input`
   background-color: #1f1f1f;
   height: 2em;

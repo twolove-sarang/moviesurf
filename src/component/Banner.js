@@ -20,7 +20,7 @@ const BannerText = styled.div`
   color: white;
   position: absolute;
   top: 350px;
-  left: 130px;
+  left: 100px;
 `;
 
 //배너(포스터이미지) 캐러셸 안에 보이게
