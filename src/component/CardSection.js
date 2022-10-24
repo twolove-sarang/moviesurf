@@ -4,11 +4,11 @@ import Cards from "./Cards";
 
 const Card = styled.div`
   // border: 1px solid black;
-  border-radius: 20px;
-  width: 250px;
-  height: 400px;
-  background-size: cover;
-  margin: 4px 4px;
+  // border-radius: 20px;
+  // width: 250px;
+  // height: 400px;
+  // background-size: cover;
+  // margin: 4px 4px;
 `;
 
 //더보기 정렬
@@ -42,13 +42,16 @@ const CardSection = ({ movie }) => {
         <CardTitle>개봉 예정 영화</CardTitle>
         <CardMore>더보기</CardMore>
       </CardAlign>
-      <div>
-        <Card>
-          {movie.results.map((item) => {
-            <Cards item={item} />;
-          })}
-        </Card>
-      </div>
+      <CardAlign>
+          {movie.results.map((item) => 
+            <Cards item={item} />
+          )}
+        {/* <Cards/>
+        <Cards/>
+        <Cards/>
+        <Cards/>
+        <Cards/> */}
+      </CardAlign>
     </div>
   );
 };
