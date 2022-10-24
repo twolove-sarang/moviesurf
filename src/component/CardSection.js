@@ -15,7 +15,6 @@ const CardAlign = styled.div`
   justify-content: center;
 `;
 
-// 텍스트 위치ㅠㅠㅠㅠㅠㅠㅠㅠ 아놔..
 const CardTitle = styled.div`
   display : flex;
   justify-content : space-between;

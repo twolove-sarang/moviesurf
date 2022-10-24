@@ -29,10 +29,9 @@ const NavigationInput = styled.input`
   background-color: #1f1f1f;
   height: 2em;
   margin: 30px;
-  border : none;
-  border-bottom : 2px solid white;
+  border: none;
+  border-bottom: 2px solid white;
 `;
-
 
 //클릭한 메뉴 보이게하기
 //인풋 오른쪽 끝으로 붙이기
@@ -41,11 +40,13 @@ const NavigationBar = () => {
   return (
     <Navigation>
       <Navigation logo>MOVIE SURF🏄‍♂️</Navigation>
-      <NavigationButton style={{}} onClick={(goToHome) => navigate("/")}>홈</NavigationButton>
+      <NavigationButton style={{}} onClick={(goToHome) => navigate("/")}>
+        홈
+      </NavigationButton>
       <NavigationButton onClick={(goToCategorize) => navigate("/categorize")}>
         카테고리
       </NavigationButton>
-      <NavigationInput type="text" placeholder="find some wave for you"/>
+      <NavigationInput type="text" placeholder="find some wave for you" />
     </Navigation>
   );
 };
