@@ -12,7 +12,7 @@ import { Route,Routes } from 'react-router';
 //data잘 들고왔나 useEffect로 확인하기
 function App() {
   return (
-    <div>
+    <div className='background'>
       <NavigationBar/>
       <Routes>
         <Route path='/' element={<MovieSurf/>}/>

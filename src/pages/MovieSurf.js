@@ -3,6 +3,8 @@ import { movieAction } from "../redux/action/movieAction";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import Banner from "../component/Banner";
+import { Container } from "react-bootstrap";
+import CardSection from "../component/CardSection";
 
 const MovieSurf = () => {
   const dispatch = useDispatch();
@@ -16,10 +18,10 @@ const MovieSurf = () => {
   }, []);
 
   return (
-    <div>
-      {currentMovie.results && <Banner movie={currentMovie.results[0]} />}
-      <div>개봉 예정 영화</div>
-    </div>
+    <Container>
+      {currentMovie.results && <Banner movie={currentMovie.results[14]} />}
+      {upComingMovie.results && <CardSection movie={upComingMovie.results[0]}/>}
+    </Container>
   );
 };
 
