@@ -1,10 +1,15 @@
 import api from "../api";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 function getMovie() {
+  // const { id } = useParams();
+
   return async (dispatch) => {
-    // const {id} = useParams();
+    // const detailMovieApi = api.get(
+    //   `/movie/${id}?api_key=${API_KEY}&language=en-US`
+    // );
+
     const currentMovieApi = api.get(
       `/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
     );
@@ -16,19 +21,11 @@ function getMovie() {
       `/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
     );
 
-    // detail 정보를 갸져오고 싶은데 movie.id가 필요하다.
-    // moviesurf에서 포스터를 누르면 detail페이지로 이동한다.
-    // const detailMovieApi = api.get(
-    //   `/movie/${id}?api_key=${API_KEY}&language=en-US`
-    // );
-
-    let [currentMovie, upComingMovie, popularMovie, detailMovie] =
-      await Promise.all([
-        currentMovieApi,
-        upComingMovieApi,
-        popularMovieApi,
-        // detailMovieApi,
-      ]);
+    let [currentMovie, upComingMovie, popularMovie] = await Promise.all([
+      currentMovieApi,
+      upComingMovieApi,
+      popularMovieApi,
+    ]);
 
     dispatch({
       type: "GET_MOVIE_SUCCESS",

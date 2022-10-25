@@ -1,28 +1,26 @@
-import React,{ useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { movieAction } from "../redux/action/movieAction";
+import React, { useEffect } from "react";
 import DetailInformation from "../component/DetailInformation";
 import DetailPoster from "../component/DetailPoster";
-
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { movieAction } from "../redux/action/movieAction";
+import { useParams } from "react-router";
 
 const DetailPage = () => {
-  // const dispatch = useDispatch();
+  // const params = useParams()
+  // console.log(params)
 
-  // const { detailMovie } = useSelector(
-  //   (state) => state.movie
-  // );
+  const dispatch = useDispatch();
+  const { detailMovie } = useSelector((state) => state.movie);
 
-  // useEffect(() => {
-  //   dispatch(movieAction.getMovie());
-  // }, []);
-
-  // console.log("디테일페이지", detailMovie);
-
+  useEffect(() => {
+    dispatch(movieAction.getMovie());
+  }, []);
 
   return (
     <div>
-      {/* <DetailPoster movie={detailMovie}/> */}
-      <DetailInformation/>
+      <DetailPoster movie={detailMovie}/>
+      <DetailInformation />
     </div>
   );
 };

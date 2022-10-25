@@ -13,6 +13,7 @@ function movieReducer(state = initialState, action) {
         currentMovie: payload.currentMovie,
         upComingMovie: payload.upComingMovie,
         popularMovie: payload.popularMovie,
+        detailMovie : payload.detailMovie,
       };
       default:
         return {...state}
