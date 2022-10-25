@@ -1,6 +1,12 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
+
+//배너 슬라이드 만들기
+const BannerSlide = styled.div`
+  width : 3870;
+`
+
 const BannerStyle = styled.div`
   width: 1290px;
   height: 600px;
@@ -29,9 +35,9 @@ const BannerText = styled.div`
 //이미지랑 글자가 같이 움직이게 하기
 //전체 width 고정
 const Banner = ({ movie }) => {
-  console.log("movie", movie);
+  // console.log("movie", movie);
   return (
-    <div>
+    <BannerSlide>
       <BannerAlign>
         <BannerStyle
           image
@@ -47,7 +53,7 @@ const Banner = ({ movie }) => {
           <p>{movie.overview}</p>
         </BannerText>
       </BannerAlign>
-    </div>
+    </BannerSlide>
   );
 };
 

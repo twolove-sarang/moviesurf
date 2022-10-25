@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import Banner from "../component/Banner";
 import CardSection from "../component/CardSection";
-import Cards from "../component/Cards";
+import DetailPage from "./DetailPage";
 
 const MovieSurf = () => {
   const dispatch = useDispatch();
