@@ -5,6 +5,7 @@ const Poster = styled.div`
   width: 270px;
   height: 400px;
   background-size: cover;
+  border-radius: 10px;
 `;
 
 const DetailAlign = styled.div`
@@ -19,6 +20,7 @@ const DetailInfo = styled.div`
   & div {
     color: white;
     padding: 3px;
+    width: 800px;
   }
 
   & div:first-child {
@@ -30,8 +32,8 @@ const DetailInfo = styled.div`
     font-size: 22px;
   }
 `;
-
 const DetailPoster = ({ detail }) => {
+  console.log("디테일", detail);
   return (
     <DetailAlign>
       <Poster
@@ -43,14 +45,19 @@ const DetailPoster = ({ detail }) => {
         }}
       />
       <DetailInfo>
-        <div>{detail?.original_title}</div>
-        <div>{detail?.overview}</div>
-        <div>tagline</div>
+        <div>{detail?.title}</div>
         <div>{detail?.tagline}</div>
-        <div>runtime</div>
+        <div>미리 보기</div>
+        <div>{detail?.overview}</div>
+        <div>상영시간</div>
         <div>{detail?.runtime} min</div>
-        <div>budget</div>
+        <div>예산</div>
         <div>{detail?.budget}</div>
+        <div>
+          {detail?.genres.map((item) => (
+            <div>{item.name}</div>
+          ))}
+        </div>
       </DetailInfo>
     </DetailAlign>
   );
