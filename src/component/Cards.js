@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Card = styled.div`
@@ -20,21 +21,19 @@ const Card = styled.div`
 const Cards = ({ item }) => {
   const navigate = useNavigate()
   const gotoDetail = () => {
-    navigate('/${id}')
+    navigate(`${item.id}`)
   }
-  // console.log("아이템?",item)
-
   return (
     <div>
-      <Card
-      onClick={gotoDetail}
-        style={{
-          backgroundImage:
-            "url(" +
-            `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${item.poster_path}` +
-            ")",
-        }}
-      ></Card>
+        <Card
+        onClick={gotoDetail}
+          style={{
+            backgroundImage:
+              "url(" +
+              `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${item.poster_path}` +
+              ")",
+          }}
+        ></Card>
     </div>
   );
 };

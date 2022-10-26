@@ -3,7 +3,7 @@ import NavigationBar from "./component/NavigationBar";
 import MovieSurf from "./pages/MovieSurf";
 import Categorize from "./pages/Categorize";
 import DetailPage from "./pages/DetailPage";
-import { Route, Routes } from "react-router";
+import { Route, Routes, useParams } from "react-router";
 import Footer from "./component/Footer";
 
 //url 들고오기--->
@@ -11,6 +11,7 @@ import Footer from "./component/Footer";
 //movieaction 에 url 정리하고 promise.all로 한번에 호출해주기
 //data잘 들고왔나 useEffect로 확인하기
 function App() {
+
   return (
     <div className="background-color">
       <div className="background-size">
@@ -18,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MovieSurf />} />
           <Route path="/categorize" element={<Categorize />} />
-          <Route path="/:id" element={<DetailPage />} />
+          <Route path="/:id" element={<DetailPage/>} />
         </Routes>
         <Footer />
       </div>
