@@ -2,6 +2,8 @@ let initialState = {
   currentMovie: {},
   upComingMovie: {},
   popularMovie: {},
+  gotoDetailPage: {},
+  getReview: {},
 };
 
 function movieReducer(state = initialState, action) {
@@ -13,10 +15,18 @@ function movieReducer(state = initialState, action) {
         currentMovie: payload.currentMovie,
         upComingMovie: payload.upComingMovie,
         popularMovie: payload.popularMovie,
-        detailMovie : payload.detailMovie,
+        // detailMovie : payload.detailMovie,
       };
-      default:
-        return {...state}
+
+    case "GET_MOVIE_DETAIL_SUCCESS":
+      return {
+        ...state,
+        gotoDetailPage: payload.gotoDetailPage,
+        getReview: payload.getReview,
+      };
+      
+    default:
+      return { ...state };
   }
 }
 

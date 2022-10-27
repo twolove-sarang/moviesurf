@@ -23,14 +23,14 @@ const DetailInfo = styled.div`
     width: 800px;
   }
 
-  & div:first-child {
-    font-size: 32px;
-    font-weight: 800;
-  }
+  // & div:first-child {
+  //   font-size: 32px;
+  //   font-weight: 800;
+  // }
 
-  & div:nth-child(2n) {
-    font-size: 22px;
-  }
+  // & div:nth-child(2n) {
+  //   font-size: 22px;
+  // }
 `;
 const DetailPoster = ({ detail }) => {
   console.log("디테일", detail);
@@ -47,6 +47,7 @@ const DetailPoster = ({ detail }) => {
       <DetailInfo>
         <div>{detail?.title}</div>
         <div>{detail?.tagline}</div>
+        <div>{detail?.release_date}</div>
         <div>미리 보기</div>
         <div>{detail?.overview}</div>
         <div>상영시간</div>
@@ -56,6 +57,11 @@ const DetailPoster = ({ detail }) => {
         <div>
           {detail?.genres.map((item) => (
             <div>{item.name}</div>
+          ))}
+        </div>
+        <div>
+          {detail?.spoken_languages.map((item) => (
+            <div>{item.english_name}</div>
           ))}
         </div>
       </DetailInfo>

@@ -3,7 +3,7 @@ import NavigationBar from "./component/NavigationBar";
 import MovieSurf from "./pages/MovieSurf";
 import Categorize from "./pages/Categorize";
 import DetailPage from "./pages/DetailPage";
-import { Route, Routes, useParams } from "react-router";
+import { Route, Routes } from "react-router";
 import Footer from "./component/Footer";
 
 //url 들고오기--->

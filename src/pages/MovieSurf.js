@@ -10,7 +10,7 @@ const MovieSurf = () => {
   const { currentMovie, upComingMovie, popularMovie } = useSelector(
     (state) => state.movie
   );
-  // console.log("currentMovie", currentMovie);
+  console.log("currentMovie", currentMovie);
 
   useEffect(() => {
     dispatch(movieAction.getMovie());
@@ -21,9 +21,15 @@ const MovieSurf = () => {
   return (
     <div>
       {currentMovie.results && <Banner movie={currentMovie.results[14]} />}
-      {upComingMovie.results && <CardSection movie={upComingMovie} name={"개봉 예정 영화"}/> }
-      {currentMovie.results && <CardSection movie={currentMovie} name={"최신 영화"}/> }
-      {popularMovie.results && <CardSection movie={popularMovie} name={"인기 있는 영화"}/> }
+      {upComingMovie.results && (
+        <CardSection movie={upComingMovie} name={"개봉 예정 영화"} />
+      )}
+      {currentMovie.results && (
+        <CardSection movie={currentMovie} name={"최신 영화"} />
+      )}
+      {popularMovie.results && (
+        <CardSection movie={popularMovie} name={"인기 있는 영화"} />
+      )}
     </div>
   );
 };

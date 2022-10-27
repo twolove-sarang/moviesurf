@@ -20,7 +20,7 @@ const FooterList = styled.div`
 
   & li {
     margin: 10px;
-    cursor : pointer;
+    cursor: pointer;
   }
 `;
 
