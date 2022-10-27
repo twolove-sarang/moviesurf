@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const Card = styled.div`
-  // border: 1px solid black;
   border-radius: 20px;
   width: 250px;
   height: 400px;
@@ -12,10 +11,6 @@ const Card = styled.div`
   margin: 4px 4px;
   cursor : pointer;
 
-  // &:hover{
-  //   width:300px;
-  //   // overflow : auto;
-  }
 `;
 
 const Cards = ({ item }) => {

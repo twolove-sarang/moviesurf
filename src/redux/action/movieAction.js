@@ -10,6 +10,7 @@ function getMovie() {
     const upComingMovieApi = api.get(
       `/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`
     );
+    
     const popularMovieApi = api.get(
       `/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
     );

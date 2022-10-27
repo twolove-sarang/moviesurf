@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import { useState } from "react";
 
 const Poster = styled.div`
   width: 270px;
@@ -34,6 +35,7 @@ const DetailInfo = styled.div`
 `;
 const DetailPoster = ({ detail }) => {
   console.log("디테일", detail);
+  const [adult, setAdult] = useState(false);
   return (
     <DetailAlign>
       <Poster
@@ -46,6 +48,7 @@ const DetailPoster = ({ detail }) => {
       />
       <DetailInfo>
         <div>{detail?.title}</div>
+        <div>{detail?.adult == true ? "adult" : ""}</div>
         <div>{detail?.tagline}</div>
         <div>{detail?.release_date}</div>
         <div>미리 보기</div>
@@ -54,16 +57,16 @@ const DetailPoster = ({ detail }) => {
         <div>{detail?.runtime} min</div>
         <div>예산</div>
         <div>{detail?.budget}</div>
-        <div>
-          {detail?.genres.map((item) => (
-            <div>{item.name}</div>
+        {/* <div>
+          {detail?.genres.map((item,index) => (
+            <div key={index}>{item.name}</div>
           ))}
         </div>
         <div>
-          {detail?.spoken_languages.map((item) => (
-            <div>{item.english_name}</div>
+          {detail?.spoken_languages.map((item, index) => (
+            <div key={index}>{item.english_name}</div>
           ))}
-        </div>
+        </div> */}
       </DetailInfo>
     </DetailAlign>
   );

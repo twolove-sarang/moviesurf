@@ -10,13 +10,8 @@ const ReviewSection = ({ review }) => {
   return (
     <div>
       <ReviewStyle>
-        {review.results.map((item) => (
-          <div>{item.author}</div>
-        ))}
-      </ReviewStyle>
-      <ReviewStyle>
-        {review.results.map((item) => (
-          <div>{item.content}</div>
+        {review.results.map((item,index) => (
+          <p key={index}>id: {item.author} -{item.updated_at} {item.content} <br/></p>
         ))}
       </ReviewStyle>
     </div>

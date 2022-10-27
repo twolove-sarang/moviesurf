@@ -5,13 +5,18 @@ import ReviewSection from "../component/ReviewSection";
 import { detailAction } from "../redux/action/detailAction";
 import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
+import CastSection from "../component/CastSection";
 
+const API_KEY = process.env.REACT_APP_API_KEY;
 const DetailPage = () => {
-  const id = useParams();
+  const { id } = useParams();
   const dispatch = useDispatch();
-  const { gotoDetailPage, getReview } = useSelector((state) => state.movie);
-
-  console.log("나오나요?", gotoDetailPage);
+  const { gotoDetailPage, getReview, castInfo, recommendation } = useSelector(
+    (state) => state.movie
+  );
+  console.log("디테일", gotoDetailPage);
+  console.log("캐스트", castInfo);
+  console.log("추천", recommendation);
 
   useEffect(() => {
     dispatch(detailAction.getDetail(id));
@@ -19,7 +24,8 @@ const DetailPage = () => {
 
   return (
     <div>
-      {gotoDetailPage.results && <DetailPoster detail={gotoDetailPage} />}
+      {gotoDetailPage && <DetailPoster detail={gotoDetailPage} />}
+      {castInfo.cast && <CastSection cast={castInfo} />}
       {getReview.results && <ReviewSection review={getReview} />}
     </div>
   );

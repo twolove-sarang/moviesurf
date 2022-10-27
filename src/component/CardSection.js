@@ -49,11 +49,6 @@ const CardSection = ({ movie, name }) => {
         {movie.results.map((item, index) => (
           <Cards key={index} item={item} />
         ))}
-        {/* <Cards/>
-        <Cards/>
-        <Cards/>
-        <Cards/>
-        <Cards/> */}
       </CardAlign>
     </div>
   );
