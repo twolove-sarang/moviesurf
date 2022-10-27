@@ -8,9 +8,8 @@ const Poster = styled.div`
   border-radius: 30px;
   background-size: cover;
   margin-top: 10px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
 `;
 
 const DetailInfoWidth = styled.div`
@@ -20,16 +19,19 @@ const DetailInfoWidth = styled.div`
 const DetailAlign = styled.div`
   display: flexbox;
   justify-content: center;
+  margin-top : 60px;
 
-  ${(props)=>props.detail && css`
-    justify-content : space-between;
-    margin-top : 15px;
-  `}
+  ${(props) =>
+    props.detail &&
+    css`
+      justify-content: space-between;
+      margin-top: 15px;
+    `}
 `;
 
 const DetailText = styled.div`
   color: white;
-  font-size : 14px;
+  font-size: 14px;
 
   ${(props) =>
     props.title &&
@@ -37,7 +39,7 @@ const DetailText = styled.div`
       font-size: 100px;
       margin-top: 12px;
     `}
-  
+
   ${(props) =>
     props.tagline &&
     css`
@@ -88,10 +90,8 @@ const DetailPoster = ({ detail }) => {
           </div>
 
           <div>
-          <DetailText tagline>청불</DetailText>
-            <DetailText>
-              {detail?.adult == true ? "adult" : "-"}
-            </DetailText>
+            <DetailText tagline>청불</DetailText>
+            <DetailText>{detail?.adult == true ? "adult" : "-"}</DetailText>
           </div>
 
           <div>

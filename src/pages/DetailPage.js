@@ -16,9 +16,9 @@ const DetailPage = () => {
   const { gotoDetailPage, getReview, castInfo, recommendation, keyword } =
     useSelector((state) => state.movie);
   console.log("디테일", gotoDetailPage);
-  console.log("캐스트", castInfo);
-  console.log("추천", recommendation);
-  console.log("키워드", keyword);
+  // console.log("캐스트", castInfo);
+  // console.log("추천", recommendation);
+  // console.log("키워드", keyword);
 
   useEffect(() => {
     dispatch(detailAction.getDetail(id));

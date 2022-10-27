@@ -1,29 +1,35 @@
-import React from 'react'
-import styled from "styled-components";
+import React from "react";
+import styled, { css } from "styled-components";
 
-const RecommendCard = ({item}) => {
-  const Card = styled.div`
-  border-radius: 20px;
-  width: 250px;
-  height: 400px;
+const Card = styled.div`
+  width: 500px;
+  height: 280px;
   background-size: cover;
-  margin: 4px 4px;
-  cursor : pointer;
+  margin: 10px;
+  cursor: pointer;
+`;
+
+const RecommendTitle = styled.div`
+  color: white;
+  font-weight: 900;
+  text-align: center;
 
 `;
+const RecommendCard = ({ item }) => {
   return (
     <div>
-      <div>{item.title}</div>
+      
       <Card
-          style={{
-            backgroundImage:
-              "url(" +
-              `https://www.themoviedb.org/t/p/w500_and_h282_face/${item.poster_path}` +
-              ")",
-          }}
-        ></Card>
+        style={{
+          backgroundImage:
+            "url(" +
+            `https://www.themoviedb.org/t/p/w500_and_h282_face/${item.poster_path}` +
+            ")",
+        }}
+      ></Card>
+      <RecommendTitle>{item.title}</RecommendTitle>
     </div>
-  )
-}
+  );
+};
 
-export default RecommendCard
+export default RecommendCard;
