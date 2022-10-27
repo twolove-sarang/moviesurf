@@ -6,69 +6,91 @@ const Poster = styled.div`
   width: 270px;
   height: 400px;
   background-size: cover;
-  border-radius: 10px;
+  // border-radius: 10px;
 `;
 
 const DetailAlign = styled.div`
   display: flexbox;
-  justify-content: center;
-  align-item: center;
+  justify-content: left;
 `;
 
-const DetailInfo = styled.div`
-  padding: 30px;
+const DetailText = styled.div`
+  color: white;
 
-  & div {
-    color: white;
-    padding: 3px;
-    width: 800px;
-  }
+  ${(props) =>
+    props.tagline &&
+    css`
+      font-weight: 700;
+      font-size: 30px;
+      color: white;
+      width: 500px;
+    `}
 
-  // & div:first-child {
-  //   font-size: 32px;
-  //   font-weight: 800;
-  // }
+  ${(props) =>
+    props.bluepoint &&
+    css`
+      font-weight: 700;
+      font-size: 50px;
+      color: blue;
+    `}
 
-  // & div:nth-child(2n) {
-  //   font-size: 22px;
-  // }
+  ${(props) =>
+    props.overview &&
+    css`
+      width: 700px;
+      margin-left: 50px;
+    `}
+
+    ${(props) =>
+      props.overviewTitle &&
+      css`
+        width: 700px;
+        margin-left: 50px;
+        font-weight : 800;
+      `}
 `;
+
+const DetailInfo = styled.div``;
 const DetailPoster = ({ detail }) => {
-  console.log("디테일", detail);
+  // console.log("디테일", detail);
   const [adult, setAdult] = useState(false);
   return (
-    <DetailAlign>
-      <Poster
-        style={{
-          backgroundImage:
-            "url(" +
-            `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${detail?.poster_path}` +
-            ")",
-        }}
-      />
-      <DetailInfo>
-        <div>{detail?.title}</div>
-        <div>{detail?.adult == true ? "adult" : ""}</div>
-        <div>{detail?.tagline}</div>
-        <div>{detail?.release_date}</div>
-        <div>미리 보기</div>
-        <div>{detail?.overview}</div>
-        <div>상영시간</div>
-        <div>{detail?.runtime} min</div>
-        <div>예산</div>
-        <div>{detail?.budget}</div>
-        {/* <div>
-          {detail?.genres.map((item,index) => (
-            <div key={index}>{item.name}</div>
-          ))}
+    <div>
+      <DetailText bluepoint>{detail?.title}</DetailText>
+      <DetailAlign>
+        <div>
+          <DetailText tagline>{detail?.tagline}</DetailText>
+          <Poster
+            style={{
+              backgroundImage:
+                "url(" +
+                `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${detail?.poster_path}` +
+                ")",
+            }}
+          />
         </div>
         <div>
-          {detail?.spoken_languages.map((item, index) => (
-            <div key={index}>{item.english_name}</div>
-          ))}
-        </div> */}
-      </DetailInfo>
-    </DetailAlign>
+          <DetailText overview>{detail?.overview}</DetailText>
+          <DetailText overview>{detail?.adult == true ? "adult" : ""}</DetailText>
+          <DetailText overview>{detail?.release_date}</DetailText>
+          <DetailText overviewTitle>상영시간</DetailText>
+          <DetailText overview>{detail?.runtime} min</DetailText>
+          <DetailText overviewTitle>예산</DetailText>
+          <DetailText overview>{detail?.budget}</DetailText>
+          <DetailText overview>
+            {detail?.genres.map((item, index) => (
+              <div key={index}>{item.name}</div>
+            ))}
+          </DetailText>
+          <DetailText overviewTitle>언어</DetailText>
+          <DetailText overview>
+            {detail?.spoken_languages.map((item, index) => (
+              <div key={index}>{item.english_name}</div>
+            ))}
+          </DetailText>
+        </div>
+      </DetailAlign>
+    </div>
   );
 };
 

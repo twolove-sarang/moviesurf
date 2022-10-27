@@ -3,9 +3,10 @@ import CastCard from "./CastCard";
 import styled, { css } from "styled-components";
 
 const CastCardStyle = styled.div`
-  width: 400px;
-  height: 200px;
+  width: 1290px;
   display : flexbox;
+  overflow : scroll;
+  margin-top : 80px;
 `;
 
 const CastSection = ({ cast }) => {

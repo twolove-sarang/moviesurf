@@ -19,12 +19,15 @@ function getDetail(id) {
       `/movie/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`
     );
 
-    let [gotoDetailPage, getReview, castInfo, recommendation] =
+    const keywordApi = api.get(`/movie/${id}/keywords?api_key=${API_KEY}`);
+
+    let [gotoDetailPage, getReview, castInfo, recommendation, keyword] =
       await Promise.all([
         gotoDetailPageApi,
         getReviewApi,
         castInfoApi,
         recommendationApi,
+        keywordApi,
       ]);
 
     dispatch({
@@ -34,6 +37,7 @@ function getDetail(id) {
         getReview: getReview.data,
         castInfo: castInfo.data,
         recommendation: recommendation.data,
+        keyword: keyword.data,
       },
     });
   };

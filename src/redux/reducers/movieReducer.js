@@ -5,7 +5,8 @@ let initialState = {
   gotoDetailPage: {},
   getReview: {},
   castInfo: {},
-  recommendation : {},
+  recommendation: {},
+  keyword: {},
 };
 
 function movieReducer(state = initialState, action) {
@@ -25,7 +26,8 @@ function movieReducer(state = initialState, action) {
         gotoDetailPage: payload.gotoDetailPage,
         getReview: payload.getReview,
         castInfo: payload.castInfo,
-        recommendation : payload.recommendation,
+        recommendation: payload.recommendation,
+        keyword: payload.keyword,
       };
 
     default:

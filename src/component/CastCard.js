@@ -2,12 +2,9 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 const Card = styled.div`
-  border-radius: 20px;
-  width: 100px;
-  height: 120px;
+  width: 310px;
+  height: 400px;
   background-size: cover;
-  margin: 4px 4px;
-  cursor : pointer;
 `;
 
 
