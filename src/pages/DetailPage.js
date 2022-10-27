@@ -4,12 +4,14 @@ import DetailPoster from "../component/DetailPoster";
 import ReviewSection from "../component/ReviewSection";
 import { detailAction } from "../redux/action/detailAction";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 
 const DetailPage = () => {
-  const { id } = useParams();
+  const id = useParams();
   const dispatch = useDispatch();
   const { gotoDetailPage, getReview } = useSelector((state) => state.movie);
+
+  console.log("나오나요?", gotoDetailPage);
 
   useEffect(() => {
     dispatch(detailAction.getDetail(id));
@@ -17,8 +19,8 @@ const DetailPage = () => {
 
   return (
     <div>
-      <DetailPoster detail={gotoDetailPage} />
-      <ReviewSection review={getReview} />
+      {gotoDetailPage.results && <DetailPoster detail={gotoDetailPage} />}
+      {getReview.results && <ReviewSection review={getReview} />}
     </div>
   );
 };

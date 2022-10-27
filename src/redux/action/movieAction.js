@@ -3,7 +3,6 @@ import api from "../api";
 const API_KEY = process.env.REACT_APP_API_KEY;
 function getMovie() {
   return async (dispatch) => {
-
     const currentMovieApi = api.get(
       `/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`
     );
@@ -15,8 +14,11 @@ function getMovie() {
       `/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
     );
 
-    let [currentMovie, upComingMovie, popularMovie] =
-      await Promise.all([currentMovieApi, upComingMovieApi, popularMovieApi]);
+    let [currentMovie, upComingMovie, popularMovie] = await Promise.all([
+      currentMovieApi,
+      upComingMovieApi,
+      popularMovieApi,
+    ]);
 
     dispatch({
       type: "GET_MOVIE_SUCCESS",

@@ -2,7 +2,7 @@ import api from "../api";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 function getDetail() {
-  return async (dispatch,id) => {
+  return async (dispatch, {id}) => {
     const gotoDetailPageApi = api.get(
       `/movie/${id}?api_key=${API_KEY}&language=en-US`
     );
@@ -13,7 +13,7 @@ function getDetail() {
 
     let [gotoDetailPage, getReview] = await Promise.all([
       gotoDetailPageApi,
-      getReviewApi,
+      getReviewApi
     ]);
 
     dispatch({
@@ -23,9 +23,6 @@ function getDetail() {
         getReview: getReview.data,
       },
     });
-
-    console.log("is good?", gotoDetailPage);
-    console.log("is good?", getReview);
   };
 }
 export const detailAction = {

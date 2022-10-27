@@ -24,7 +24,7 @@ function movieReducer(state = initialState, action) {
         gotoDetailPage: payload.gotoDetailPage,
         getReview: payload.getReview,
       };
-      
+
     default:
       return { ...state };
   }
