@@ -16,7 +16,7 @@ const CardTitle = styled.div`
   color: white;
   text-align: center;
   font-weight: 900;
-  font-size: 20px;
+  font-size: 30px;
 
   ${(props) =>
     props.flex &&
@@ -32,6 +32,13 @@ const CardTitle = styled.div`
         font-weight: 400;
         font-size: 12px;
       }
+    `}
+
+  ${(props) =>
+    props.title &&
+    css`
+      padding: 30px;
+      padding-top: 100px;
     `}
 `;
 
@@ -56,12 +63,14 @@ const Cards = ({ item }) => {
             ")",
         }}
       >
-        <CardTitle>{item.title}</CardTitle>
-        <CardTitle flex>
-          {item.genre_ids.map((item) => (
-            <CardItem>{item}</CardItem>
-          ))}
-        </CardTitle>
+        <div>
+          <CardTitle title>{item.title}</CardTitle>
+          <CardTitle flex>
+            {item.genre_ids.map((item) => (
+              <CardItem>{item}</CardItem>
+            ))}
+          </CardTitle>
+        </div>
         {/* <CardTitle>{item.adult == true ? "adult" : "Under 18"}</CardTitle> */}
       </Card>
     </div>

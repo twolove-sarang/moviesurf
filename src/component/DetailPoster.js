@@ -19,7 +19,7 @@ const DetailInfoWidth = styled.div`
 const DetailAlign = styled.div`
   display: flexbox;
   justify-content: center;
-  margin-top : 60px;
+  margin-top: 60px;
 
   ${(props) =>
     props.detail &&
@@ -91,7 +91,9 @@ const DetailPoster = ({ detail }) => {
 
           <div>
             <DetailText tagline>청불</DetailText>
-            <DetailText>{detail?.adult == true ? "adult" : "under 18"}</DetailText>
+            <DetailText>
+              {detail?.adult == true ? "only adult" : "-"}
+            </DetailText>
           </div>
 
           <div>

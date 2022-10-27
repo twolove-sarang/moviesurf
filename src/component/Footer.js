@@ -35,7 +35,7 @@ const Footer = () => {
   ];
   return (
     <div>
-      <FooterNotice>공지사항</FooterNotice>
+      <FooterNotice>Resume</FooterNotice>
       <FooterList>
         {footerMenu.map((item, index) => (
           <li key={index}>{item}</li>
