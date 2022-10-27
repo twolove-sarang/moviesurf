@@ -43,7 +43,7 @@ const DetailText = styled.div`
   ${(props) =>
     props.tagline &&
     css`
-      margin-top: 10px;
+      margin-top: 20px;
       font-size: 16px;
       font-weight: 800;
     `}
@@ -91,7 +91,7 @@ const DetailPoster = ({ detail }) => {
 
           <div>
             <DetailText tagline>청불</DetailText>
-            <DetailText>{detail?.adult == true ? "adult" : "-"}</DetailText>
+            <DetailText>{detail?.adult == true ? "adult" : "under 18"}</DetailText>
           </div>
 
           <div>

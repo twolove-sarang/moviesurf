@@ -17,7 +17,7 @@ const ReviewStyle = styled.div`
     props.updated &&
     css`
       color: grey;
-      margin: 14px 0 ;
+      margin: 14px 0;
       font-size: 10px;
     `}
 
@@ -33,41 +33,47 @@ const ReviewStyle = styled.div`
     css`
       margin: 90px 0 20px 0;
       font-size: 26px;
-      font-weight : 100;
+      font-weight: 100;
     `}
 
     ${(props) =>
-      props.border &&
-      css`
-        border-bottom : 1px solid white;
-        width : 150px;
-        margin-top : 100px;
-        margin-left : auto;
-        margin-right : auto;
-      `}
+    props.border &&
+    css`
+      border-bottom: 1px solid white;
+      width: 150px;
+      margin-top: 100px;
+      margin-left: auto;
+      margin-right: auto;
+    `}
 `;
 
 const ReviewSection = ({ review }) => {
-  // console.log("리뷰", review);
+  console.log("리뷰", review);
   return (
     <div>
-      <ReviewStyle main>Review</ReviewStyle>
-      <ReviewStyle>
-        {review.results.map((item, index) => (
-          <ReviewStyle key={index} text>
-            <ReviewStyle title>
-              {item.author} <br />
-            </ReviewStyle>
-            <ReviewStyle updated>
-              {item.updated_at} <br />
-            </ReviewStyle>
-            <ReviewStyle>
-              {item.content} <br />
-            </ReviewStyle>
-            <ReviewStyle border></ReviewStyle>
+      {review.results.length == 0 ? (
+        ""
+      ) : (
+        <div>
+          <ReviewStyle main>Review</ReviewStyle>
+          <ReviewStyle>
+            {review.results.map((item, index) => (
+              <ReviewStyle key={index} text>
+                <ReviewStyle title>
+                  {item.author} <br />
+                </ReviewStyle>
+                <ReviewStyle updated>
+                  {item.updated_at} <br />
+                </ReviewStyle>
+                <ReviewStyle>
+                  {item.content} <br />
+                </ReviewStyle>
+                <ReviewStyle border></ReviewStyle>
+              </ReviewStyle>
+            ))}
           </ReviewStyle>
-        ))}
-      </ReviewStyle>
+        </div>
+      )}
     </div>
   );
 };

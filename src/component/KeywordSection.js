@@ -3,18 +3,20 @@ import styled, { css } from "styled-components";
 
 const KeywordAlign = styled.div`
   display: flexbox;
-  justify-content : center;
-  overflow: scroll;
+  justify-content: center;
   flex-wrap: wrap;
 `;
 
 const KeywordStyle = styled.div`
   color: white;
+  &:active {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    cursor : pointer;
+  }
 
   ${(props) =>
     props.style &&
     css`
-      // border: 2px solid white;
       box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
       border-radius: 60px;
       padding: 20px;
@@ -31,22 +33,32 @@ const KeywordStyle = styled.div`
       font-size: 26px;
       font-weight: 100;
     `}
+
+    ${(props) =>
+    props.border &&
+    css`
+      border-bottom: 1px solid white;
+      width: 100px;
+    `}
 `;
 
 const KeywordSection = ({ keyword }) => {
+  console.log("keyword", keyword);
   return (
     <div>
-      <KeywordStyle main>Keyword</KeywordStyle>
-      {keyword.keywords ? (
-        <KeywordAlign>
-          {keyword.keywords.map((item, index) => (
-            <KeywordStyle style key={index}>
-              {item.name}
-            </KeywordStyle>
-          ))}
-        </KeywordAlign>
+      {keyword.keywords.length == 0 ? (
+        ""
       ) : (
-        (<KeywordStyle>🫥</KeywordStyle>)
+        <div>
+          <KeywordStyle main>Keyword</KeywordStyle>
+          <KeywordAlign>
+            {keyword.keywords.map((item, index) => (
+              <KeywordStyle style key={index}>
+                {item.name}
+              </KeywordStyle>
+            ))}
+          </KeywordAlign>
+        </div>
       )}
     </div>
   );

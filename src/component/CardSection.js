@@ -2,15 +2,6 @@ import React from "react";
 import styled, { css } from "styled-components";
 import Cards from "./Cards";
 
-const Card = styled.div`
-  // border: 1px solid black;
-  // border-radius: 20px;
-  // width: 250px;
-  // height: 400px;
-  // background-size: cover;
-  // margin: 4px 4px;
-`;
-
 //더보기 정렬
 const CardAlign = styled.div`
   display: flexbox;
@@ -29,7 +20,6 @@ const CardTitle = styled.div`
 const CardMore = styled.div`
   font-size: 18px;
   color: #9f9f9f;
-  // width: 50px;
   display: flex;
   align-items: center;
   margin-top: 24px;

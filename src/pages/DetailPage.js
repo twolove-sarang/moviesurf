@@ -31,7 +31,7 @@ const DetailPage = () => {
       {keyword.keywords && <KeywordSection keyword={keyword} />}
       {getReview.results && <ReviewSection review={getReview} />}
       {recommendation.results && (
-        <RecommendSection recommend={recommendation} />
+        <RecommendSection recommend={recommendation} detail={gotoDetailPage} />
       )}
     </div>
   );
