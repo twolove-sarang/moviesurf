@@ -3,94 +3,116 @@ import styled, { css } from "styled-components";
 import { useState } from "react";
 
 const Poster = styled.div`
-  width: 270px;
-  height: 400px;
+  width: 400px;
+  height: 600px;
+  border-radius: 30px;
   background-size: cover;
-  // border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 `;
 
+const DetailInfoWidth = styled.div`
+  width: 600px;
+  margin-left: 50px;
+`;
 const DetailAlign = styled.div`
   display: flexbox;
-  justify-content: left;
+  justify-content: center;
+
+  ${(props)=>props.detail && css`
+    justify-content : space-between;
+    margin-top : 15px;
+  `}
 `;
 
 const DetailText = styled.div`
   color: white;
+  font-size : 14px;
 
+  ${(props) =>
+    props.title &&
+    css`
+      font-size: 100px;
+      margin-top: 12px;
+    `}
+  
   ${(props) =>
     props.tagline &&
     css`
-      font-weight: 700;
-      font-size: 30px;
-      color: white;
-      width: 500px;
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: 800;
     `}
-
-  ${(props) =>
-    props.bluepoint &&
-    css`
-      font-weight: 700;
-      font-size: 50px;
-      color: blue;
-    `}
-
-  ${(props) =>
-    props.overview &&
-    css`
-      width: 700px;
-      margin-left: 50px;
-    `}
-
-    ${(props) =>
-      props.overviewTitle &&
-      css`
-        width: 700px;
-        margin-left: 50px;
-        font-weight : 800;
-      `}
 `;
 
-const DetailInfo = styled.div``;
 const DetailPoster = ({ detail }) => {
   // console.log("디테일", detail);
   const [adult, setAdult] = useState(false);
   return (
-    <div>
-      <DetailText bluepoint>{detail?.title}</DetailText>
-      <DetailAlign>
-        <div>
-          <DetailText tagline>{detail?.tagline}</DetailText>
-          <Poster
-            style={{
-              backgroundImage:
-                "url(" +
-                `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${detail?.poster_path}` +
-                ")",
-            }}
-          />
-        </div>
-        <div>
-          <DetailText overview>{detail?.overview}</DetailText>
-          <DetailText overview>{detail?.adult == true ? "adult" : ""}</DetailText>
-          <DetailText overview>{detail?.release_date}</DetailText>
-          <DetailText overviewTitle>상영시간</DetailText>
-          <DetailText overview>{detail?.runtime} min</DetailText>
-          <DetailText overviewTitle>예산</DetailText>
-          <DetailText overview>{detail?.budget}</DetailText>
-          <DetailText overview>
-            {detail?.genres.map((item, index) => (
-              <div key={index}>{item.name}</div>
-            ))}
-          </DetailText>
-          <DetailText overviewTitle>언어</DetailText>
-          <DetailText overview>
-            {detail?.spoken_languages.map((item, index) => (
-              <div key={index}>{item.english_name}</div>
-            ))}
-          </DetailText>
-        </div>
-      </DetailAlign>
-    </div>
+    <DetailAlign>
+      <Poster
+        style={{
+          backgroundImage:
+            "url(" +
+            `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${detail?.poster_path}` +
+            ")",
+        }}
+      />
+      <DetailInfoWidth>
+        <DetailText tagline>{detail?.tagline}</DetailText>
+        <DetailText title className="Cafe24Ohsquare">
+          {detail?.title}
+        </DetailText>
+
+        <DetailText tagline>줄거리</DetailText>
+        <DetailText>{detail?.overview}</DetailText>
+
+        <DetailAlign detail>
+          <div>
+            <DetailText tagline>개봉일자</DetailText>
+            <DetailText>{detail?.release_date}</DetailText>
+          </div>
+
+          <div>
+            <DetailText tagline>상영시간</DetailText>
+            <DetailText>{detail?.runtime}분</DetailText>
+          </div>
+
+          <div>
+            <DetailText tagline>예산</DetailText>
+            <DetailText>
+              {detail?.budget == "0" ? "-" : `${detail.budget}`}
+            </DetailText>
+          </div>
+
+          <div>
+          <DetailText tagline>청불</DetailText>
+            <DetailText>
+              {detail?.adult == true ? "adult" : "-"}
+            </DetailText>
+          </div>
+
+          <div>
+            <DetailText tagline>장르</DetailText>
+            <DetailText>
+              {detail?.genres.map((item, index) => (
+                <div key={index}>{item.name}</div>
+              ))}
+            </DetailText>
+          </div>
+          <div>
+            <DetailText tagline>언어</DetailText>
+            <DetailText>
+              {detail?.spoken_languages.map((item, index) => (
+                <div key={index}>{item.english_name}</div>
+              ))}
+            </DetailText>
+          </div>
+        </DetailAlign>
+      </DetailInfoWidth>
+    </DetailAlign>
   );
 };
 

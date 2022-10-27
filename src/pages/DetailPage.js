@@ -30,7 +30,9 @@ const DetailPage = () => {
       {castInfo.cast && <CastSection cast={castInfo} />}
       {keyword.keywords && <KeywordSection keyword={keyword} />}
       {getReview.results && <ReviewSection review={getReview} />}
-      {recommendation.results && <RecommendSection recommend={recommendation} />}
+      {recommendation.results && (
+        <RecommendSection recommend={recommendation} />
+      )}
     </div>
   );
 };

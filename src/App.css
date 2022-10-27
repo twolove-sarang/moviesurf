@@ -1,8 +1,8 @@
-.background-color{
+.background-color {
   background-color: #1f1f1f;
 }
 
-.background-size{
+.background-size {
   background-color: #1f1f1f;
   width: 1290px;
   margin-left: auto;
@@ -10,12 +10,13 @@
 }
 
 @font-face {
-  font-family: 'GmarketSansMedium';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-family: "Cafe24Ohsquare";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/Cafe24Ohsquare.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
-*{
-  font-family: 'GmarketSansMedium';
+.Cafe24Ohsquare {
+  font-family: "Cafe24Ohsquare";
 }
