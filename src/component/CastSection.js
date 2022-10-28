@@ -1,21 +1,8 @@
 import React from "react";
 import CastCard from "./CastCard";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-const CastCardStyle = styled.div`
-  width: 1290px;
-  display : flexbox;
-  overflow : scroll;
-  margin-top : 80px;
-`;
 
-const CastStyle = styled.div`
-color: white;
-text-align: center;
-margin: 80px 0;
-font-size: 26px;
-font-weight: 100;
-`
 
 const CastSection = ({ cast }) => {
   return (
@@ -31,3 +18,19 @@ const CastSection = ({ cast }) => {
 };
 
 export default CastSection;
+
+
+const CastCardStyle = styled.div`
+  width: 1290px;
+  display : flexbox;
+  overflow : scroll;
+  margin-top : 80px;
+`;
+
+const CastStyle = styled.div`
+color: white;
+text-align: center;
+margin: 80px 0;
+font-size: 26px;
+font-weight: 100;
+`

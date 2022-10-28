@@ -10,7 +10,6 @@ const BannerStyle = styled.div`
 `;
 
 const BannerSection = ({ movie }) => {
-  console.log("배너섹션", movie);
   return (
     <div>
       <BannerStyle>

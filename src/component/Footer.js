@@ -1,28 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const FooterNotice = styled.div`
-  color: #9f9f9f;
-  margin-top: 90px;
-  border-bottom: 1px solid #4f4f4f;
-  border-top: 1px solid #4f4f4f;
-  padding: 20px;
-  font-size: 18px;
-  font-weight: 600;
-`;
-
-const FooterList = styled.div`
-  display: flex;
-  padding: 10px;
-  list-style: none;
-  color: #9f9f9f;
-  font-size: 14px;
-
-  & li {
-    margin: 10px;
-    cursor: pointer;
-  }
-`;
 
 // 내 정보로 바꾸기
 const Footer = () => {
@@ -46,3 +24,27 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+const FooterNotice = styled.div`
+  color: #9f9f9f;
+  margin-top: 90px;
+  border-bottom: 1px solid #4f4f4f;
+  border-top: 1px solid #4f4f4f;
+  padding: 20px;
+  font-size: 18px;
+  font-weight: 600;
+`;
+
+const FooterList = styled.div`
+  display: flex;
+  padding: 10px;
+  list-style: none;
+  color: #9f9f9f;
+  font-size: 14px;
+
+  & li {
+    margin: 10px;
+    cursor: pointer;
+  }
+`;

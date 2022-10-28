@@ -4,7 +4,6 @@ import { useState } from "react";
 
 
 const DetailPoster = ({ detail }) => {
-  // console.log("디테일", detail);
   const [adult, setAdult] = useState(false);
   return (
     <DetailAlign>

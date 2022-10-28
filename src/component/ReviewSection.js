@@ -48,7 +48,6 @@ const ReviewStyle = styled.div`
 `;
 
 const ReviewSection = ({ review }) => {
-  console.log("리뷰", review);
   return (
     <div>
       {review.results.length == 0 ? (

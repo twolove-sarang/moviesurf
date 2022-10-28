@@ -4,7 +4,6 @@ import styled, { css } from "styled-components";
 
 
 const CastCard = ({ item }) => {
-  // console.log("castitem", item);
   return (
     <div>
       <Card

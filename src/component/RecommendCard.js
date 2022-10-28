@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 const RecommendCard = ({ item }) => {
-  console.log("recommend", item);
-  // console.log("detail??",detail)
-  const { getGenre } = useSelector((state) => state.movie);
-  const [adult,setAdult] = useState(false)
+  const { getGenre } = useSelector((state) => state.detail);
+  // console.log("getGenre", getGenre);
   return (
     <div>
       <Card
@@ -20,12 +18,11 @@ const RecommendCard = ({ item }) => {
         <RecommendOverlay>
           {item.title}
           {item.genre_ids &&
-            item.genre_ids.map((id) => (
-              <RecommendGenre>
-                {getGenre.genres.find((item) => item.id == id).name}
-              </RecommendGenre>
-            ))}
-          {/* {item.adult == true? "adult":""} */}
+          item.genre_ids.map((id) => (
+            <RecommendGenre>
+              {getGenre.genres.find((item) => item.id == id).name}
+            </RecommendGenre>
+          ))}
         </RecommendOverlay>
       </Card>
     </div>

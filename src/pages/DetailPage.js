@@ -11,41 +11,34 @@ import KeywordSection from "../component/KeywordSection";
 import ClipLoader from "react-spinners/ClipLoader";
 
 const DetailPage = () => {
-  let [loading, setLoading] = useState(false);
   const { id } = useParams();
   const dispatch = useDispatch();
-  const { gotoDetailPage, getReview, castInfo, recommendation, keyword } =
-    useSelector((state) => state.movie);
-  // console.log("디테일", gotoDetailPage);
-  // console.log("캐스트", castInfo);
-  // console.log("추천", recommendation);
-  // console.log("키워드", keyword);
+  const { gotoDetailPage, getReview, castInfo, recommendation, keyword, loading } =
+    useSelector((state) => state.detail);
 
   useEffect(() => {
-    setLoading();
     dispatch(detailAction.getDetail(id));
   }, []);
 
+  if (loading) {
+    return (
+      <div className="loader">
+        <ClipLoader color="#446ff2" loading={loading} size={100} />
+      </div>
+    );
+  }
   return (
     <div>
-      {loading ? (
-        <div className="loader">
-          <ClipLoader color="#446ff2" loading={loading} size={100} />
-        </div>
-      ) : (
-        <div>
-          {gotoDetailPage && <DetailPoster detail={gotoDetailPage} />}
-          {castInfo.cast && <CastSection cast={castInfo} />}
-          {keyword.keywords && <KeywordSection keyword={keyword} />}
-          {getReview.results && <ReviewSection review={getReview} />}
-          {recommendation.results && (
-            <RecommendSection
-              recommend={recommendation}
-              detail={gotoDetailPage}
-            />
-          )}
-        </div>
-      )}
+        {gotoDetailPage && <DetailPoster detail={gotoDetailPage} />}
+        {castInfo.cast && <CastSection cast={castInfo} />}
+        {keyword.keywords && <KeywordSection keyword={keyword} />}
+        {getReview.results && <ReviewSection review={getReview} />}
+        {recommendation.results && (
+          <RecommendSection
+            recommend={recommendation}
+            detail={gotoDetailPage}
+          />
+        )}
     </div>
   );
 };

@@ -32,7 +32,6 @@ const BannerText = styled.div`
 `;
 
 const Banner = ({ item }) => {
-  // console.log("item", item);
   const navigate = useNavigate();
   const gotoDetail = () => {
     navigate(`${item.id}`);

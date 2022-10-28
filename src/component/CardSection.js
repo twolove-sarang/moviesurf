@@ -5,7 +5,6 @@ import Cards from "./Cards";
 
 // card를 5개씩 보여주고 싶어!
 const CardSection = ({ movie, name }) => {
-  // console.log("무비?", movie);
   return (
     <div>
       <CardAlign>

@@ -19,7 +19,6 @@ const RecommendTitle = styled.div`
     `}
 `;
 const RecommendSection = ({ recommend }) => {
-  // console.log("recommend", recommend);
   return (
     <div>
       {recommend.results == 0 ? (
