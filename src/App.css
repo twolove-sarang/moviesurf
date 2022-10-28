@@ -20,3 +20,10 @@
 .Cafe24Ohsquare {
   font-family: "Cafe24Ohsquare";
 }
+
+.loader{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

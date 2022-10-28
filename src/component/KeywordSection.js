@@ -10,8 +10,9 @@ const KeywordAlign = styled.div`
 const KeywordStyle = styled.div`
   color: white;
   &:hover {
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-    cursor : pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset,
+      rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    cursor: pointer;
   }
 
   ${(props) =>
@@ -25,21 +26,19 @@ const KeywordStyle = styled.div`
     `}
 
   ${(props) =>
-    props.main &&
-    css`
-      color: white;
-      text-align: center;
-      margin: 80px 0;
-      font-size: 26px;
-      font-weight: 100;
-    `}
-
-    ${(props) =>
     props.border &&
     css`
       border-bottom: 1px solid white;
       width: 100px;
     `}
+`;
+
+const KeywordTitle = styled.div`
+  color: white;
+  text-align: center;
+  margin: 80px 0;
+  font-size: 26px;
+  font-weight: 100;
 `;
 
 const KeywordSection = ({ keyword }) => {
@@ -50,7 +49,7 @@ const KeywordSection = ({ keyword }) => {
         ""
       ) : (
         <div>
-          <KeywordStyle main>Keyword</KeywordStyle>
+          <KeywordTitle>Keyword</KeywordTitle>
           <KeywordAlign>
             {keyword.keywords.map((item, index) => (
               <KeywordStyle style key={index}>

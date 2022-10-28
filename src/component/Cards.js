@@ -71,7 +71,7 @@ const CardItem = styled.div`
 `;
 
 const Cards = ({ item }) => {
-  console.log("메인 카드 아이템", item);
+  // console.log("메인 카드 아이템", item);
   const navigate = useNavigate();
   const gotoDetail = () => {
     navigate(`${item.id}`);

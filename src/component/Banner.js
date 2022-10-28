@@ -21,8 +21,12 @@ const BannerText = styled.div`
   width: 450px;
   color: white;
   position: absolute;
-  top: 350px;
+  top: 200px;
   left: 100px;
+
+  .Cafe24Ohsquare {
+    font-size :50px;
+  }
 `;
 
 const Banner = ({ item }) => {
