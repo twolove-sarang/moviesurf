@@ -45,7 +45,7 @@ const KeywordSection = ({ keyword }) => {
   console.log("keyword", keyword);
   return (
     <div>
-      {keyword.keywords.length == 0 ? (
+      {keyword.keywords.length === 0 ? (
         ""
       ) : (
         <div>

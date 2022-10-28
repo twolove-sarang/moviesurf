@@ -6,7 +6,6 @@ import CardSection from "../component/CardSection";
 import BannerSection from "../component/BannerSection";
 import ClipLoader from "react-spinners/ClipLoader";
 import { useState } from "react";
-import styled, { css } from "styled-components";
 
 const MovieSurf = () => {
   let [loading, setLoading] = useState(false);

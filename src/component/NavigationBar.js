@@ -48,7 +48,7 @@ const NavigationBar = () => {
       <NavigationButton onClick={(goToCategorize) => navigate("/categorize")}>
         카테고리
       </NavigationButton>
-      <NavigationInput type="text" placeholder="find some wave for you" />
+      <NavigationInput type="text" placeholder="baby, comming soon😉" />
     </Navigation>
   );
 };

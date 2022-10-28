@@ -1,5 +1,6 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 
 //배너 슬라이드 만들기
 
@@ -9,6 +10,7 @@ const BannerStyle = styled.div`
   border-radius: 30px;
   margin: 30px 10px;
   background-size: cover;
+  cursor : pointer;
 `;
 
 const BannerAlign = styled.div`
@@ -31,10 +33,15 @@ const BannerText = styled.div`
 
 const Banner = ({ item }) => {
   // console.log("item", item);
+  const navigate = useNavigate();
+  const gotoDetail = () => {
+    navigate(`${item.id}`);
+  };
   return (
       <BannerAlign>
         <BannerStyle
           // image
+          onClick={gotoDetail}
           style={{
             backgroundImage:
               "url(" +
