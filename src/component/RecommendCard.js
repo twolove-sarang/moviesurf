@@ -1,10 +1,10 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import { Navigate, useNavigate } from "react-router";
 import styled from "styled-components";
 
 const RecommendCard = ({ item }) => {
   const { getGenre } = useSelector((state) => state.detail);
-  // console.log("getGenre", getGenre);
   return (
     <div>
       <Card

@@ -5,6 +5,12 @@ import styled, { css } from "styled-components";
 const RecommendStyle = styled.div`
   display: flex;
   overflow: scroll;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  $::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const RecommendTitle = styled.div`

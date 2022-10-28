@@ -43,6 +43,7 @@ const Card = styled.div`
   background-size: cover;
   margin: 4px 4px;
   cursor: pointer;
+  
 `;
 
 const CardHover = styled.div`

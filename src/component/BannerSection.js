@@ -7,6 +7,12 @@ const BannerStyle = styled.div`
   display: flexbox;
   justify-content: center;
   overflow: scroll;
+
+  -ms-overflow-style:none;
+  scrollbar-width:none;
+  $::-webkit-scrollbar{
+    display : none;
+  }
 `;
 
 const BannerSection = ({ movie }) => {

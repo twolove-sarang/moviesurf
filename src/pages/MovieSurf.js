@@ -24,7 +24,7 @@ const MovieSurf = () => {
   }
   return (
     <div>
-      <BannerSection movie={popularMovie} />
+      <BannerSection movie={currentMovie} />
       <CardSection movie={upComingMovie} name={"개봉 예정 영화"} />
       <CardSection movie={currentMovie} name={"최신 영화"} />
       <CardSection movie={popularMovie} name={"인기 있는 영화"} />

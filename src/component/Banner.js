@@ -2,34 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
-//배너 슬라이드 만들기
-
-const BannerStyle = styled.div`
-  width: 1290px;
-  height: 600px;
-  border-radius: 30px;
-  margin: 30px 10px;
-  background-size: cover;
-  cursor : pointer;
-`;
-
-const BannerAlign = styled.div`
-  display: flex;
-  justify-content: center;
-  position: relative;
-`;
-
-const BannerText = styled.div`
-  width: 450px;
-  color: white;
-  position: absolute;
-  top: 200px;
-  left: 100px;
-
-  .Cafe24Ohsquare {
-    font-size :50px;
-  }
-`;
 
 const Banner = ({ item }) => {
   const navigate = useNavigate();
@@ -58,3 +30,33 @@ const Banner = ({ item }) => {
 };
 
 export default Banner;
+
+
+//배너 슬라이드 만들기
+
+const BannerStyle = styled.div`
+  width: 1290px;
+  height: 600px;
+  border-radius: 30px;
+  margin: 30px 10px;
+  background-size: cover;
+  cursor : pointer;
+`;
+
+const BannerAlign = styled.div`
+  display: flex;
+  justify-content: center;
+  position: relative;
+`;
+
+const BannerText = styled.div`
+  width: 450px;
+  color: white;
+  position: absolute;
+  top: 200px;
+  left: 100px;
+
+  .Cafe24Ohsquare {
+    font-size :50px;
+  }
+`;

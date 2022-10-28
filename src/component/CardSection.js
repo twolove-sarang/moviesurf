@@ -17,7 +17,7 @@ const CardSection = ({ movie, name }) => {
       </CardAlign>
       <CardAlign>
         {/* <CardArrow></CardArrow> */}
-        {movie.results.map((item, index) => (
+        {movie.results && movie.results.map((item, index) => (
           <Cards key={index} item={item} />
         ))}
         {/* <CardArrow></CardArrow> */}
@@ -33,6 +33,12 @@ export default CardSection;
 const CardAlign = styled.div`
   display: flexbox;
   overflow: scroll;
+
+  -ms-overflow-style:none;
+  scrollbar-width:none;
+  $::-webkit-scrollbar{
+    display : none;
+  }
 `;
 
 const CardTitle = styled.div`
