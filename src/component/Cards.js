@@ -12,6 +12,30 @@ const Card = styled.div`
   cursor: pointer;
 `;
 
+const CardHover = styled.div`
+  opacity: 0;
+  &:hover {
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    background-color:black;
+    border-radius : 20px;
+    animation : fadeInFromNone 0.3s ease-in;
+  }
+
+  @keyframes fadeInFromNone {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    100% {
+        display: block;
+        opacity: 0.8;
+    }
+}
+`;
+
 const CardTitle = styled.div`
   color: white;
   text-align: center;
@@ -63,14 +87,14 @@ const Cards = ({ item }) => {
             ")",
         }}
       >
-        <div>
+        <CardHover>
           <CardTitle title>{item.title}</CardTitle>
           <CardTitle flex>
             {item.genre_ids.map((item) => (
               <CardItem>{item}</CardItem>
             ))}
           </CardTitle>
-        </div>
+        </CardHover>
         {/* <CardTitle>{item.adult == true ? "adult" : "Under 18"}</CardTitle> */}
       </Card>
     </div>

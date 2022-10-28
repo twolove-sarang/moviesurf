@@ -2,15 +2,15 @@ import React from "react";
 import { movieAction } from "../redux/action/movieAction";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import Banner from "../component/Banner";
 import CardSection from "../component/CardSection";
+import BannerSection from "../component/BannerSection";
 
 const MovieSurf = () => {
   const dispatch = useDispatch();
   const { currentMovie, upComingMovie, popularMovie } = useSelector(
     (state) => state.movie
   );
-  console.log("currentMovie", currentMovie);
+  // console.log("currentMovie", currentMovie);
 
   useEffect(() => {
     dispatch(movieAction.getMovie());
@@ -20,7 +20,7 @@ const MovieSurf = () => {
   // 컴포넌트에서 map으로 받기
   return (
     <div>
-      {currentMovie.results && <Banner movie={currentMovie.results[14]} />}
+      {popularMovie && <BannerSection movie={popularMovie} />}
       {upComingMovie.results && (
         <CardSection movie={upComingMovie} name={"개봉 예정 영화"} />
       )}

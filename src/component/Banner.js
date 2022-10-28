@@ -1,17 +1,13 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-
 //배너 슬라이드 만들기
-const BannerSlide = styled.div`
-  width : 3870;
-`
 
 const BannerStyle = styled.div`
   width: 1290px;
   height: 600px;
   border-radius: 30px;
-  margin: 30px;
+  margin: 30px 10px;
   background-size: cover;
 `;
 
@@ -29,26 +25,25 @@ const BannerText = styled.div`
   left: 100px;
 `;
 
-const Banner = ({ movie }) => {
-  // console.log("movie", movie);
+const Banner = ({ item }) => {
+  // console.log("item", item);
   return (
-    <BannerSlide>
       <BannerAlign>
         <BannerStyle
-          image
+          // image
           style={{
             backgroundImage:
               "url(" +
-              `https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${movie.backdrop_path}` +
-              ")",
+              `https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${item.backdrop_path}` +
+              ")"
           }}
-        ></BannerStyle>
-        <BannerText>
-          <h1>{movie.title}</h1>
-          <p>{movie.overview}</p>
-        </BannerText>
+        >
+          <BannerText>
+            <h1 className="Cafe24Ohsquare">{item.title}</h1>
+            <p>{item.overview}</p>
+          </BannerText>
+        </BannerStyle>
       </BannerAlign>
-    </BannerSlide>
   );
 };
 

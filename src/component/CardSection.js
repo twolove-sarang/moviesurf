@@ -2,6 +2,8 @@ import React from "react";
 import styled, { css } from "styled-components";
 import Cards from "./Cards";
 
+
+
 //더보기 정렬
 const CardAlign = styled.div`
   display: flexbox;
@@ -28,7 +30,7 @@ const CardMore = styled.div`
 
 // card를 5개씩 보여주고 싶어!
 const CardSection = ({ movie, name }) => {
-  console.log("무비?", movie);
+  // console.log("무비?", movie);
   return (
     <div>
       <CardAlign>
