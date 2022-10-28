@@ -2,6 +2,7 @@ let initialState = {
   currentMovie: {},
   upComingMovie: {},
   popularMovie: {},
+  getGenre : [],
   gotoDetailPage: {},
   getReview: {},
   castInfo: {},
@@ -18,6 +19,7 @@ function movieReducer(state = initialState, action) {
         currentMovie: payload.currentMovie,
         upComingMovie: payload.upComingMovie,
         popularMovie: payload.popularMovie,
+        getGenre : payload.getGenre,
       };
 
     case "GET_MOVIE_DETAIL_SUCCESS":

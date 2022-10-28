@@ -1,42 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-const Card = styled.div`
-  width: 310px;
-  height: 400px;
-  background-size: cover;
-`;
 
-const CardCharacter = styled.div`
-  color: white;
-  font-size: 22px;
-  text-align: center;
-`;
-
-const CardStyle = styled.div`
-  color: white;
-  font-size: 12px;
-  font-weight: 800;
-  text-align: center;
-`;
-
-const CardAlign = styled.div`
-  display: flex;
-  justify-content: left;
-  opacity: 0;
-
-  & div {
-    padding: 20px;
-    margin-top: 30px;
-  }
-
-  &:hover {
-    width: 310px;
-    height: 400px;
-    background: black;
-    opacity: 0.8;
-  }
-`;
 
 const CastCard = ({ item }) => {
   // console.log("castitem", item);
@@ -74,3 +39,41 @@ const CastCard = ({ item }) => {
 };
 
 export default CastCard;
+
+
+const Card = styled.div`
+  width: 310px;
+  height: 400px;
+  background-size: cover;
+`;
+
+const CardCharacter = styled.div`
+  color: white;
+  font-size: 22px;
+  text-align: center;
+`;
+
+const CardStyle = styled.div`
+  color: white;
+  font-size: 12px;
+  font-weight: 800;
+  text-align: center;
+`;
+
+const CardAlign = styled.div`
+  display: flex;
+  justify-content: left;
+  opacity: 0;
+
+  & div {
+    padding: 20px;
+    margin-top: 30px;
+  }
+
+  &:hover {
+    width: 310px;
+    height: 400px;
+    background: black;
+    opacity: 0.8;
+  }
+`;

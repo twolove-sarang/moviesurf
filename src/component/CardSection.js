@@ -2,6 +2,34 @@ import React from "react";
 import styled, { css } from "styled-components";
 import Cards from "./Cards";
 
+
+// card를 5개씩 보여주고 싶어!
+const CardSection = ({ movie, name }) => {
+  // console.log("무비?", movie);
+  return (
+    <div>
+      <CardAlign>
+        <CardTitle>{name}</CardTitle>
+        <CardMore>
+          <CardMore more>더보기</CardMore>
+          <CardArrow>back</CardArrow>
+          <CardArrow>go</CardArrow>
+        </CardMore>
+      </CardAlign>
+      <CardAlign>
+        {/* <CardArrow></CardArrow> */}
+        {movie.results.map((item, index) => (
+          <Cards key={index} item={item} />
+        ))}
+        {/* <CardArrow></CardArrow> */}
+      </CardAlign>
+    </div>
+  );
+};
+
+export default CardSection;
+
+
 //더보기 정렬
 const CardAlign = styled.div`
   display: flexbox;
@@ -58,29 +86,3 @@ const CardArrow = styled.div`
     }
   }
 `;
-
-// card를 5개씩 보여주고 싶어!
-const CardSection = ({ movie, name }) => {
-  // console.log("무비?", movie);
-  return (
-    <div>
-      <CardAlign>
-        <CardTitle>{name}</CardTitle>
-        <CardMore>
-          <CardMore more>더보기</CardMore>
-          <CardArrow>back</CardArrow>
-          <CardArrow>go</CardArrow>
-        </CardMore>
-      </CardAlign>
-      <CardAlign>
-        {/* <CardArrow></CardArrow> */}
-        {movie.results.map((item, index) => (
-          <Cards key={index} item={item} />
-        ))}
-        {/* <CardArrow></CardArrow> */}
-      </CardAlign>
-    </div>
-  );
-};
-
-export default CardSection;

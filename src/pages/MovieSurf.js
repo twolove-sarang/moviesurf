@@ -10,10 +10,11 @@ import { useState } from "react";
 const MovieSurf = () => {
   let [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const { currentMovie, upComingMovie, popularMovie } = useSelector(
+  const { currentMovie, upComingMovie, popularMovie, getGenre } = useSelector(
     (state) => state.movie
   );
   // console.log("currentMovie", currentMovie);
+  console.log("이거 확인해주라",getGenre)
 
   useEffect(() => {
     setLoading();

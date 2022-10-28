@@ -15,10 +15,15 @@ function getMovie() {
       `/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
     );
 
-    let [currentMovie, upComingMovie, popularMovie] = await Promise.all([
+    const getGenreApi = api.get(
+      `/genre/movie/list?api_key=${API_KEY}&language=en-US`
+    )
+
+    let [currentMovie, upComingMovie, popularMovie, getGenre] = await Promise.all([
       currentMovieApi,
       upComingMovieApi,
       popularMovieApi,
+      getGenreApi,
     ]);
 
     dispatch({
@@ -27,6 +32,7 @@ function getMovie() {
         currentMovie: currentMovie.data,
         upComingMovie: upComingMovie.data,
         popularMovie: popularMovie.data,
+        getGenre : getGenre.data,
       },
     });
 

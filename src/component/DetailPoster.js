@@ -2,52 +2,6 @@ import React from "react";
 import styled, { css } from "styled-components";
 import { useState } from "react";
 
-const Poster = styled.div`
-  width: 400px;
-  height: 600px;
-  border-radius: 30px;
-  background-size: cover;
-  margin-top: 10px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
-`;
-
-const DetailInfoWidth = styled.div`
-  width: 600px;
-  margin-left: 50px;
-`;
-const DetailAlign = styled.div`
-  display: flexbox;
-  justify-content: center;
-  margin-top: 60px;
-
-  ${(props) =>
-    props.detail &&
-    css`
-      justify-content: space-between;
-      margin-top: 15px;
-    `}
-`;
-
-const DetailText = styled.div`
-  color: white;
-  font-size: 14px;
-
-  ${(props) =>
-    props.title &&
-    css`
-      font-size: 100px;
-      margin-top: 12px;
-    `}
-
-  ${(props) =>
-    props.tagline &&
-    css`
-      margin-top: 20px;
-      font-size: 16px;
-      font-weight: 800;
-    `}
-`;
 
 const DetailPoster = ({ detail }) => {
   // console.log("디테일", detail);
@@ -119,3 +73,52 @@ const DetailPoster = ({ detail }) => {
 };
 
 export default DetailPoster;
+
+
+
+const Poster = styled.div`
+  width: 400px;
+  height: 600px;
+  border-radius: 30px;
+  background-size: cover;
+  margin-top: 10px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+`;
+
+const DetailInfoWidth = styled.div`
+  width: 600px;
+  margin-left: 50px;
+`;
+const DetailAlign = styled.div`
+  display: flexbox;
+  justify-content: center;
+  margin-top: 60px;
+
+  ${(props) =>
+    props.detail &&
+    css`
+      justify-content: space-between;
+      margin-top: 15px;
+    `}
+`;
+
+const DetailText = styled.div`
+  color: white;
+  font-size: 14px;
+
+  ${(props) =>
+    props.title &&
+    css`
+      font-size: 100px;
+      margin-top: 12px;
+    `}
+
+  ${(props) =>
+    props.tagline &&
+    css`
+      margin-top: 20px;
+      font-size: 16px;
+      font-weight: 800;
+    `}
+`;
