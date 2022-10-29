@@ -2,7 +2,6 @@ import React from "react";
 import styled, { css } from "styled-components";
 import Cards from "./Cards";
 
-
 // card를 5개씩 보여주고 싶어!
 const CardSection = ({ movie, name }) => {
   return (
@@ -11,15 +10,14 @@ const CardSection = ({ movie, name }) => {
         <CardTitle>{name}</CardTitle>
         <CardMore>
           <CardMore more>더보기</CardMore>
-          <CardArrow>back</CardArrow>
-          <CardArrow>go</CardArrow>
+          <CardArrow>&lt;</CardArrow>
+          <CardArrow>&gt;</CardArrow>
         </CardMore>
       </CardAlign>
       <CardAlign>
         {/* <CardArrow></CardArrow> */}
-        {movie.results && movie.results.map((item, index) => (
-          <Cards key={index} item={item} />
-        ))}
+        {movie.results &&
+          movie.results.map((item, index) => <Cards key={index} item={item} />)}
         {/* <CardArrow></CardArrow> */}
       </CardAlign>
     </div>
@@ -28,17 +26,10 @@ const CardSection = ({ movie, name }) => {
 
 export default CardSection;
 
-
 //더보기 정렬
 const CardAlign = styled.div`
   display: flexbox;
   overflow: scroll;
-
-  -ms-overflow-style:none;
-  scrollbar-width:none;
-  $::-webkit-scrollbar{
-    display : none;
-  }
 `;
 
 const CardTitle = styled.div`
@@ -67,27 +58,21 @@ const CardMore = styled.div`
 `;
 
 const CardArrow = styled.div`
-  width: 36px;
+  width: 26px;
   height: 20px;
-  background-color: white;
+  color: #9f9f9f;
+  font-weight: 400;
+  text-align: center;
+  font-size : 15px;
+  line-height:16.5px;
+  // border:1px solid #9f9f9f;
   border-radius: 50px;
   margin-top: 24px;
   margin-left: 5px;
   cursor: pointer;
-  opacity: 0.5;
 
-  &:hover {
-    animation: fadeInFromNone 0.3s ease-in;
-  }
-
-  @keyframes fadeInFromNone {
-    0% {
-      opacity: 0;
-      display: none;
-    }
-    100% {
-      opacity: 0.5;
-      display: block;
-    }
+  &:hover{
+    background-color:#9f9f9f;
+    color:#1f1f1f;
   }
 `;

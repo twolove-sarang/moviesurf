@@ -6,10 +6,13 @@ import { detailAction } from "../redux/action/detailAction";
 
 const Categorize = () => {
   const dispatch = useDispatch();
-  const { getGenre, loading, gotoDetailPage } = useSelector((state) => state.detail);
+  const { getGenre, loading, gotoDetailPage } = useSelector(
+    (state) => state.detail
+  );
   console.log("장르가져오기", getGenre);
-  console.log("detailpage",gotoDetailPage);
-  const [changeGenre, setChangeGenre] = useState([]);
+  console.log("detailpage", gotoDetailPage);
+  const [changeGenre, setChangeGenre] = useState('Genre');
+  const [searchItem, setSearchItem] = useState([])
 
   useEffect(() => {
     dispatch(detailAction.getDetail());

@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { movieAction } from "../redux/action/movieAction";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import CardSection from "../component/CardSection";
 import BannerSection from "../component/BannerSection";
 import ClipLoader from "react-spinners/ClipLoader";
+import styled from "styled-components";
 
 const MovieSurf = () => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const MovieSurf = () => {
   return (
     <div>
       <BannerSection movie={currentMovie} />
-      <CardSection movie={upComingMovie} name={"개봉 예정 영화"} />
+        <CardSection movie={upComingMovie} name={"개봉 예정 영화"} />
       <CardSection movie={currentMovie} name={"최신 영화"} />
       <CardSection movie={popularMovie} name={"인기 있는 영화"} />
     </div>

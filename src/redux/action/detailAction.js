@@ -4,7 +4,7 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 function getDetail(id) {
   return async (dispatch) => {
     try {
-      dispatch({type:"GET_MOVIES_REQUEST"})
+      dispatch({ type: "GET_MOVIES_REQUEST" });
       const gotoDetailPageApi = api.get(
         `/movie/${id}?api_key=${API_KEY}&language=en-US`
       );
@@ -27,16 +27,21 @@ function getDetail(id) {
         `/genre/movie/list?api_key=${API_KEY}&language=en-US`
       );
 
-
-      let [gotoDetailPage, getReview, castInfo, recommendation, keyword, getGenre] =
-        await Promise.all([
-          gotoDetailPageApi,
-          getReviewApi,
-          castInfoApi,
-          recommendationApi,
-          keywordApi,
-          getGenreApi,
-        ]);
+      let [
+        gotoDetailPage,
+        getReview,
+        castInfo,
+        recommendation,
+        keyword,
+        getGenre,
+      ] = await Promise.all([
+        gotoDetailPageApi,
+        getReviewApi,
+        castInfoApi,
+        recommendationApi,
+        keywordApi,
+        getGenreApi,
+      ]);
 
       dispatch({
         type: "GET_MOVIE_DETAIL_SUCCESS",
@@ -46,12 +51,12 @@ function getDetail(id) {
           castInfo: castInfo.data,
           recommendation: recommendation.data,
           keyword: keyword.data,
-          getGenre : getGenre.data,
-          loading : false,
+          getGenre: getGenre.data,
+          loading: false,
         },
       });
     } catch (error) {
-      dispatch({type:"GET_MOVIE_FAILURE"})
+      dispatch({ type: "GET_MOVIE_FAILURE" });
     }
   };
 }
