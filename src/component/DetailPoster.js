@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import { useState } from "react";
-
+import { keyframes } from "styled-components";
 
 const DetailPoster = ({ detail }) => {
   const [adult, setAdult] = useState(false);
@@ -16,10 +16,12 @@ const DetailPoster = ({ detail }) => {
         }}
       />
       <DetailInfoWidth>
-        <DetailText tagline>{detail?.tagline}</DetailText>
-        <DetailText title className="Cafe24Ohsquare">
-          {detail?.title}
-        </DetailText>
+          <DetailText tagline>{detail?.tagline}</DetailText>
+        <PosterAnimation>
+          <DetailText title className="Cafe24Ohsquare">
+            {detail?.title}
+          </DetailText>
+        </PosterAnimation>
 
         <DetailText tagline>줄거리</DetailText>
         <DetailText>{detail?.overview}</DetailText>
@@ -52,17 +54,17 @@ const DetailPoster = ({ detail }) => {
           <div>
             <DetailText tagline>장르</DetailText>
             <DetailText>
-              {detail.genres && detail?.genres.map((item, index) => (
-                <div>{item.name}</div>
-              ))}
+              {detail.genres &&
+                detail?.genres.map((item, index) => <div>{item.name}</div>)}
             </DetailText>
           </div>
           <div>
             <DetailText tagline>언어</DetailText>
             <DetailText>
-              {detail.spoken_languages && detail?.spoken_languages.map((item, index) => (
-                <div>{item.english_name}</div>
-              ))}
+              {detail.spoken_languages &&
+                detail?.spoken_languages.map((item, index) => (
+                  <div>{item.english_name}</div>
+                ))}
             </DetailText>
           </div>
         </DetailAlign>
@@ -73,7 +75,20 @@ const DetailPoster = ({ detail }) => {
 
 export default DetailPoster;
 
+const PosterFrames = keyframes`
+0%{
+  opacity : 0;
+  transform : translateX(2em);
+}
+100%{
+  opacity: 1;
+  transform : translateX(0);
+}
+`;
 
+const PosterAnimation = styled.div`
+  animation: ${PosterFrames} 2s;
+`;
 
 const Poster = styled.div`
   width: 400px;

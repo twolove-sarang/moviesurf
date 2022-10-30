@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+
 const Cards = ({ item }) => {
   const { getGenre } = useSelector((state) => state.movie);
   const navigate = useNavigate();
