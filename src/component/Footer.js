@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 const Footer = () => {
   return (
     <div>
-      <FooterNotice>Introduce</FooterNotice>
+      <FooterNotice>INTRODUCE</FooterNotice>
       <FooterList>
         <FooterList mainFooter>
           <div>lovely, love-lee</div>
@@ -32,13 +32,16 @@ const Footer = () => {
 export default Footer;
 
 const FooterNotice = styled.div`
+  width : 500px;
+  margin-left:auto;
+  margin-right:auto;
   color: #9f9f9f;
   margin-top: 90px;
   border-bottom: 1px solid #4f4f4f;
-  border-top: 1px solid #4f4f4f;
   padding: 20px;
   font-size: 18px;
   font-weight: 600;
+  text-align : center;
 `;
 
 const FooterList = styled.div`

@@ -1,16 +1,24 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import styled, { css } from "styled-components";
 import { keyframes } from "styled-components";
 import Cards from "./Cards";
 
 // card를 5개씩 보여주고 싶어!
 const CardSection = ({ movie, name }) => {
+  const navigate = useNavigate();
+  console.log("무비무비",movie)
+  const gotoDetailPage = () => {
+    navigate("/categorize");
+  };
   return (
     <div>
       <CardAlign>
         <CardTitle>{name}</CardTitle>
         <CardMore>
-          <CardMore more>더보기</CardMore>
+          <CardMore more onClick={gotoDetailPage} movie={movie}>
+            더보기
+          </CardMore>
           <CardArrow>&lt;</CardArrow>
           <CardArrow>&gt;</CardArrow>
         </CardMore>

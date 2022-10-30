@@ -14,7 +14,7 @@ const Categorize = () => {
   console.log("장르가져오기", getGenre);
   console.log("디테일페이지", gotoDetailPage);
   console.log("파퓰러무비", popularMovie);
-  const [changeGenre, setChangeGenre] = useState("Genre");
+  const [changeGenre, setChangeGenre] = useState("All");
 
   useEffect(() => {
     dispatch(detailAction.getDetail());
@@ -39,6 +39,18 @@ const Categorize = () => {
           ))}
       </CategoryWidth>
       <CategoryTitle>{changeGenre}</CategoryTitle>
+      <CategoryAlign>
+        {popularMovie.results.map((item) => (
+          <CategoryImage
+            style={{
+              backgroundImage:
+                "url(" +
+                `https://image.tmdb.org/t/p/w600_and_h900_bestv2/${item.poster_path}` +
+                ")",
+            }}
+          ></CategoryImage>
+        ))}
+      </CategoryAlign>
     </div>
   );
 };
@@ -67,7 +79,7 @@ const CategoryStyle = styled.button`
 const CategoryWidth = styled.div`
   width: 1200px;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
 `;
 
 const CategoryTitle = styled.div`
@@ -78,13 +90,15 @@ const CategoryTitle = styled.div`
 `;
 
 const CategoryImage = styled.div`
-  width: 250px;
-  height: 400px;
+  width: 300px;
+  height: 450px;
   margin: 4px;
   border-radius: 30px;
   text-align: center;
-  background-color: white;
-  opacity: 0.5;
+  background-size : cover;
 `;
 
-const CardGenre = styled.div``;
+const CategoryAlign = styled.div`
+  flex-wrap: wrap;
+  display: flexbox;
+`;

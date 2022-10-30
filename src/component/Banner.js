@@ -30,7 +30,7 @@ const Banner = ({ item }) => {
           >
             <h1 className="Cafe24Ohsquare">{item.title}</h1>
           </TypeIt>
-            <p>{item.overview}</p>
+            {/* <p>{item.overview}</p> */}
         </BannerText>
       </BannerStyle>
     </BannerAlign>
