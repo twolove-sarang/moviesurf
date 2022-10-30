@@ -6,7 +6,7 @@ const CastSection = ({ cast }) => {
   const [position,setPosition] = useState(0);
   const onscroll = () => {
     setPosition(window.scrollY)
-    console.log("여기?",window.scrollY)
+    // console.log("여기?",window.scrollY)
   }
 
   useEffect(()=>{
