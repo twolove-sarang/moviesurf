@@ -107,7 +107,7 @@ const CardAlign = styled.div`
   }
 
   &:hover {
-    width: 100%;
+    width: 310px;
     height: 400px;
     background: black;
     opacity: 0.8;

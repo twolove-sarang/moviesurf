@@ -19,7 +19,7 @@ const CastSection = ({ cast }) => {
   return (
     <div>
       <CastStyle>CAST</CastStyle>
-      <CastCardAnimation style={{opacity:(position-200)/500}}>
+      <CastCardAnimation style={{opacity:(position-100)/500}}>
         <CastCardStyle>
           {cast.cast.map((item, index) => (
             <CastCard item={item} />

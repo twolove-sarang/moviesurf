@@ -1,37 +1,35 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled, { css } from "styled-components";
-
 
 // 내 정보로 바꾸기
 const Footer = () => {
-  const footerMenu = [
-    "소개",
-    "인재상",
-    "포트폴리오 소개",
-    "연락처",
-    "작업일기",
-  ];
-  // 메뉴 누르면 내용 보이게
   return (
     <div>
-      <FooterNotice>공지사항</FooterNotice>
+      <FooterNotice>Introduce</FooterNotice>
       <FooterList>
-        {footerMenu.map((item, index) => (
-          <li>{item}</li>
-        ))}
+        <FooterList mainFooter>
+          <div>lovely, love-lee</div>
+          <div>Junior FE developer(will be..)</div>
+          <div>contact</div>
+        </FooterList>
+        <FooterList logo>
+          <a href="https://github.com/twolove-sarang/moviesurf">
+            <img width={30} src="https://cdn-icons-png.flaticon.com/512/25/25231.png" />
+          </a>
+          <a href="https://danzo999.blogspot.com/search/label/%ED%8F%AC%ED%8A%B8%ED%8F%B4%EB%A6%AC%EC%98%A4">
+            <img width={30} src="https://logodownload.org/wp-content/uploads/2018/02/blogger-logo-icon.png" />
+          </a>
+        </FooterList>
+        <FooterList diary>
+          <div>This movieSearch portfolio made by Sa-Rang.</div>
+          <div>2022.10.25~2022.10.31</div>
+        </FooterList>
       </FooterList>
-
-      <FooterList> 이름 : 이사랑, 92년생 개발자 </FooterList>
-      <FooterList>인재상 : 2년 6개월 주식회사 픽웰 디자인 팀장</FooterList>
-      <FooterList>영화 내용 소개, 등장인물, 추천, 왜 만들게 되었는지 부족한 점은 무엇이였는지 아쉬운점까지 적어놓기 </FooterList>
-      <FooterList>E : twolovelove2232@gmail.com</FooterList>
-      <FooterList>블로그 이모티콘, 깃허브 이모티콘</FooterList>
     </div>
   );
 };
 
 export default Footer;
-
 
 const FooterNotice = styled.div`
   color: #9f9f9f;
@@ -44,14 +42,52 @@ const FooterNotice = styled.div`
 `;
 
 const FooterList = styled.div`
-  display: flex;
-  padding: 10px;
-  list-style: none;
+  justify-content: center;
   color: #9f9f9f;
   font-size: 14px;
 
-  & li {
-    margin: 10px;
-    cursor: pointer;
-  }
+  ${(props) =>
+    props.mainFooter &&
+    css`
+      text-align: center;
+      padding: 40px;
+      margin: 10px;
+      div:first-child {
+        font-weight: 800;
+        color: white;
+        font-size: 25px;
+        margin-bottom: 10px;
+      }
+      div:nth-child(3) {
+        margin-top: 40px;
+        font-weight: 700;
+      }
+    `}
+
+  ${(props) =>
+    props.logo &&
+    css`
+      width: 100px;
+      height: 30px;
+      display: flex;
+      justify-content: space-between;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: -30px;
+      &div {
+        width: 30px;
+      }
+    `}
+
+    ${(props) =>
+    props.diary &&
+    css`
+      text-align: center;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      div:first-child {
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+    `}
 `;

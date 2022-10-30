@@ -47,6 +47,10 @@ const NavigationButton = styled.button`
   color: white;
   cursor: pointer;
   margin: 0px 15px;
+
+  &:active {
+    font-weight : 800;
+  }
 `;
 
 
