@@ -57,7 +57,7 @@ const ReviewSection = ({ review }) => {
           <ReviewStyle main>Review</ReviewStyle>
           <ReviewStyle>
             {review.results.map((item, index) => (
-              <ReviewStyle key={index} text>
+              <ReviewStyle text>
                 <ReviewStyle title>
                   {item.author} <br />
                 </ReviewStyle>

@@ -53,7 +53,7 @@ const DetailPoster = ({ detail }) => {
             <DetailText tagline>장르</DetailText>
             <DetailText>
               {detail.genres && detail?.genres.map((item, index) => (
-                <div key={index}>{item.name}</div>
+                <div>{item.name}</div>
               ))}
             </DetailText>
           </div>
@@ -61,7 +61,7 @@ const DetailPoster = ({ detail }) => {
             <DetailText tagline>언어</DetailText>
             <DetailText>
               {detail.spoken_languages && detail?.spoken_languages.map((item, index) => (
-                <div key={index}>{item.english_name}</div>
+                <div>{item.english_name}</div>
               ))}
             </DetailText>
           </div>

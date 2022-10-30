@@ -50,7 +50,7 @@ const KeywordSection = ({ keyword }) => {
           <KeywordTitle>Keyword</KeywordTitle>
           <KeywordAlign>
             {keyword.keywords.map((item, index) => (
-              <KeywordStyle style key={index}>
+              <KeywordStyle style>
                 {item.name}
               </KeywordStyle>
             ))}

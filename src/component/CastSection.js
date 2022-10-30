@@ -8,7 +8,7 @@ const CastSection = ({ cast }) => {
       <CastStyle>CAST</CastStyle>
       <CastCardStyle>
         {cast.cast.map((item, index) => (
-          <CastCard item={item} key={index} />
+          <CastCard item={item} />
         ))}
       </CastCardStyle>
     </div>
