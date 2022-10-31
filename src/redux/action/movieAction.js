@@ -14,7 +14,7 @@ function getMovie() {
       );
 
       const popularMovieApi = api.get(
-        `/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
+        `/movie/popular?api_key=${API_KEY}&language=en-US`
       );
 
       const getGenreApi = api.get(

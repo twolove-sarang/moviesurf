@@ -19,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<MovieSurf />} />
           <Route path="/categorize" element={<Categorize />} />
+          <Route path="/categorize/:id" element={<Categorize />} />
           <Route path="/:id" element={<DetailPage/>} />
         </Routes>
         <Footer />

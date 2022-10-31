@@ -16,7 +16,7 @@ const CardSection = ({ movie, name }) => {
       <CardAlign>
         <CardTitle>{name}</CardTitle>
         <CardMore>
-          <CardMore more onClick={gotoDetailPage} movie={movie}>
+          <CardMore more onClick={(movie)=>gotoDetailPage(movie)}>
             더보기
           </CardMore>
           <CardArrow>&lt;</CardArrow>

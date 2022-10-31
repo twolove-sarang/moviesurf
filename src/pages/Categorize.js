@@ -4,6 +4,7 @@ import styled from "styled-components";
 import ClipLoader from "react-spinners/ClipLoader";
 import { detailAction } from "../redux/action/detailAction";
 import { movieAction } from "../redux/action/movieAction";
+import Paging from "../component/Paging";
 
 const Categorize = () => {
   const dispatch = useDispatch();
@@ -11,10 +12,11 @@ const Categorize = () => {
     (state) => state.detail
   );
   const { popularMovie } = useSelector((state) => state.movie);
+  const [changeGenre, setChangeGenre] = useState("All");
+
   console.log("장르가져오기", getGenre);
   console.log("디테일페이지", gotoDetailPage);
   console.log("파퓰러무비", popularMovie);
-  const [changeGenre, setChangeGenre] = useState("All");
 
   useEffect(() => {
     dispatch(detailAction.getDetail());
@@ -33,7 +35,7 @@ const Categorize = () => {
       <CategoryWidth>
         {getGenre.genres &&
           getGenre.genres.map((item) => (
-            <CategoryStyle onClick={() => setChangeGenre(item.name)}>
+            <CategoryStyle onClick={setChangeGenre}>
               {item.name}
             </CategoryStyle>
           ))}
@@ -51,6 +53,7 @@ const Categorize = () => {
           ></CategoryImage>
         ))}
       </CategoryAlign>
+      <Paging></Paging>
     </div>
   );
 };
@@ -79,7 +82,7 @@ const CategoryStyle = styled.button`
 const CategoryWidth = styled.div`
   width: 1200px;
   display: flex;
-  flex-wrap: wrap; 
+  flex-wrap: wrap;
 `;
 
 const CategoryTitle = styled.div`
@@ -95,7 +98,7 @@ const CategoryImage = styled.div`
   margin: 4px;
   border-radius: 30px;
   text-align: center;
-  background-size : cover;
+  background-size: cover;
 `;
 
 const CategoryAlign = styled.div`
