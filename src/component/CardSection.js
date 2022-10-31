@@ -7,7 +7,7 @@ import Cards from "./Cards";
 // card를 5개씩 보여주고 싶어!
 const CardSection = ({ movie, name }) => {
   const navigate = useNavigate();
-  console.log("무비무비",movie)
+  // console.log("무비무비",movie)
   const gotoDetailPage = () => {
     navigate("/categorize");
   };
@@ -19,15 +19,15 @@ const CardSection = ({ movie, name }) => {
           <CardMore more onClick={(movie)=>gotoDetailPage(movie)}>
             더보기
           </CardMore>
-          <CardArrow>&lt;</CardArrow>
-          <CardArrow>&gt;</CardArrow>
+          {/* <CardArrow>&lt;</CardArrow>
+          <CardArrow>&gt;</CardArrow> */}
         </CardMore>
       </CardAlign>
       <CardAlign>
         {movie.results &&
           movie.results.map((item, index) => (
             <CardKeyframes>
-              <Cards key={index} item={item} />{" "}
+              <Cards key={index} item={item} />
             </CardKeyframes>
           ))}
       </CardAlign>
@@ -56,7 +56,12 @@ const CardKeyframes = styled.div`
 
 const CardAlign = styled.div`
   display: flexbox;
-  overflow: hidden;
+  justify-content:space-between;
+  overflow: scroll;
+  @media screen and (max-width: 768px) {
+    width : 740px;
+    margin-left : 30px;
+  }
 `;
 
 const CardTitle = styled.div`
@@ -65,13 +70,20 @@ const CardTitle = styled.div`
   font-weight: 700;
   width: 1140px;
   text-align: left;
-  margin: 40px auto 10px;
+  margin: 10px;
+  padding-top : 10px;
+
+  @media screen and (max-width: 768px) {
+    font-size :12px;
+    width : 580px;
+  }
 `;
 
 const CardMore = styled.div`
   font-size: 18px;
   color: #9f9f9f;
   display: flex;
+
   align-items: center;
 
   ${(props) =>
@@ -81,6 +93,12 @@ const CardMore = styled.div`
       margin-left: 15px;
       margin-right: 5px;
       cursor: pointer;
+
+      @media screen and (max-width: 768px) {
+        font-size :12px;
+        margin-right : 40px;
+        margin-bottom : 10px;
+      }
     `}
 `;
 
@@ -97,6 +115,10 @@ const CardArrow = styled.div`
   margin-top: 24px;
   margin-left: 5px;
   cursor: pointer;
+
+  @media screen and (max-width: 768px) {
+    font-size :12px;
+  }
 
   &:hover {
     background-color: #9f9f9f;

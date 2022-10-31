@@ -35,9 +35,7 @@ const Categorize = () => {
       <CategoryWidth>
         {getGenre.genres &&
           getGenre.genres.map((item) => (
-            <CategoryStyle onClick={setChangeGenre}>
-              {item.name}
-            </CategoryStyle>
+            <CategoryStyle onClick={setChangeGenre}>{item.name}</CategoryStyle>
           ))}
       </CategoryWidth>
       <CategoryTitle>{changeGenre}</CategoryTitle>
@@ -77,12 +75,21 @@ const CategoryStyle = styled.button`
   &:active {
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
   }
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
+    margin: 5px;
+  }
 `;
 
 const CategoryWidth = styled.div`
   width: 1200px;
   display: flex;
   flex-wrap: wrap;
+  @media screen and (max-width: 768px) {
+    width: 768px;
+    padding: 20px;
+
+  }
 `;
 
 const CategoryTitle = styled.div`
@@ -90,6 +97,12 @@ const CategoryTitle = styled.div`
   font-size: 90px;
   color: white;
   margin-top: 80px;
+  padding : 30px;
+  @media screen and (max-width: 768px) {
+    font-size: 45px;
+    padding: 30px;
+    margin-top: 5px;
+  }
 `;
 
 const CategoryImage = styled.div`
@@ -99,6 +112,13 @@ const CategoryImage = styled.div`
   border-radius: 30px;
   text-align: center;
   background-size: cover;
+
+  @media screen and (max-width: 768px) {
+    width: 150px;
+    height: 230px;
+    border-radius : 15px;
+    margin :0 auto;
+  }
 `;
 
 const CategoryAlign = styled.div`

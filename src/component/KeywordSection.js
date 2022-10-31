@@ -1,6 +1,32 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
+
+const KeywordSection = ({ keyword }) => {
+  return (
+    <div>
+      {keyword.keywords.length === 0 ? (
+        ""
+      ) : (
+        <div>
+          <KeywordTitle>Keyword</KeywordTitle>
+          <KeywordAlign>
+            {keyword.keywords.map((item, index) => (
+              <KeywordStyle style>
+                {item.name}
+              </KeywordStyle>
+            ))}
+          </KeywordAlign>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default KeywordSection;
+
+
+
 const KeywordAlign = styled.div`
   display: flexbox;
   justify-content: center;
@@ -39,26 +65,3 @@ const KeywordTitle = styled.div`
   font-size: 26px;
   font-weight: 100;
 `;
-
-const KeywordSection = ({ keyword }) => {
-  return (
-    <div>
-      {keyword.keywords.length === 0 ? (
-        ""
-      ) : (
-        <div>
-          <KeywordTitle>Keyword</KeywordTitle>
-          <KeywordAlign>
-            {keyword.keywords.map((item, index) => (
-              <KeywordStyle style>
-                {item.name}
-              </KeywordStyle>
-            ))}
-          </KeywordAlign>
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default KeywordSection;

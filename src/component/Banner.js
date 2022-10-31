@@ -25,12 +25,11 @@ const Banner = ({ item }) => {
             options={{
               speed: 100,
               waitUntilVisible: true,
-              
             }}
           >
             <h1 className="Cafe24Ohsquare">{item.title}</h1>
           </TypeIt>
-            {/* <p>{item.overview}</p> */}
+          {/* <p>{item.overview}</p> */}
         </BannerText>
       </BannerStyle>
     </BannerAlign>
@@ -40,7 +39,6 @@ const Banner = ({ item }) => {
 export default Banner;
 
 //배너 슬라이드 만들기
-
 const BannerStyle = styled.div`
   width: 1290px;
   height: 600px;
@@ -48,6 +46,13 @@ const BannerStyle = styled.div`
   margin: 30px 10px;
   background-size: cover;
   cursor: pointer;
+
+  @media screen and (max-width: 768px) {
+    width: 700px;
+    height : 350px;
+    margin: 8px;
+    overflow : hidden;
+  }
 `;
 
 const BannerAlign = styled.div`
@@ -65,5 +70,10 @@ const BannerText = styled.div`
 
   .Cafe24Ohsquare {
     font-size: 50px;
+  }
+
+  @media screen and (max-width: 768px) {
+    top : 110px;
+    left : 60px;
   }
 `;

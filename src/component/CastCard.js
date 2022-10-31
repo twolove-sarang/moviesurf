@@ -4,7 +4,7 @@ import { keyframes } from "styled-components";
 
 const CastCard = ({ item }) => {
   return (
-    <div>
+    <CastCardWidth>
       {item.profile_path ? (
         <Card
           style={{
@@ -58,11 +58,17 @@ const CastCard = ({ item }) => {
           </Card>
         </div>
       )}
-    </div>
+    </CastCardWidth>
   );
 };
 
 export default CastCard;
+
+const CastCardWidth = styled.div`
+  @media screen and (max-width: 768px) {
+    overflow: hidden;
+  }
+`;
 
 const Card = styled.div`
   width: 310px;
@@ -80,12 +86,22 @@ const Card = styled.div`
       font-size: 14px;
       margin-top: 175px;
     `}
+
+  @media screen and (max-width:768px) {
+    width: 230px;
+    height: 300px;
+    overflow: hidden;
+  }
 `;
 
 const CardCharacter = styled.div`
   color: white;
   font-size: 22px;
   text-align: center;
+
+  @media screen and (max-width: 768px) {
+    width: 70px;
+  }
 `;
 
 const CardStyle = styled.div`
@@ -102,8 +118,12 @@ const CardAlign = styled.div`
   height: 100%;
 
   & div {
-    padding: 20px;
+    padding: 10px;
     margin-top: 30px;
+
+    @media screen and (max-width: 768px) {
+      padding: 10px;
+    }
   }
 
   &:hover {
@@ -111,5 +131,10 @@ const CardAlign = styled.div`
     height: 400px;
     background: black;
     opacity: 0.8;
+
+    @media screen and (max-width: 768px) {
+      width: 230px;
+      height: 300px;
+    }
   }
 `;

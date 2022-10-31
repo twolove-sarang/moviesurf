@@ -54,12 +54,6 @@ const CastCardStyle = styled.div`
   display: flexbox;
   overflow: scroll;
   margin-top: 80px;
-
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  $::-webkit-scrollbar {
-    display: none;
-  }
 `;
 
 const CastStyle = styled.div`

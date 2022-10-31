@@ -16,7 +16,7 @@ const DetailPoster = ({ detail }) => {
         }}
       />
       <DetailInfoWidth>
-          <DetailText tagline>{detail?.tagline}</DetailText>
+        <DetailText tagline>{detail?.tagline}</DetailText>
         <PosterAnimation>
           <DetailText title className="Cafe24Ohsquare">
             {detail?.title}
@@ -98,11 +98,24 @@ const Poster = styled.div`
   margin-top: 10px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
+
+  @media screen and (max-width: 768px) {
+    width: 200px;
+    height: 300px;
+    margin : 30px;
+  }
 `;
 
 const DetailInfoWidth = styled.div`
   width: 600px;
   margin-left: 50px;
+
+  @media screen and (max-width:768px){
+    width : 400px;
+    display : flex;
+    flex-direction : column;
+    margin-left :10px;
+  }
 `;
 const DetailAlign = styled.div`
   display: flexbox;
@@ -114,18 +127,44 @@ const DetailAlign = styled.div`
     css`
       justify-content: space-between;
       margin-top: 15px;
+
+      @media screen and (max-width: 768px) {
+        width: 380px;
+        justify-content:space-between;
+        margin-left : 40px;
+
+        div {
+          width: 60px;
+          color: white;
+          margin: 0px;
+          margin-left: -20px;
+        }
+      }
     `}
+
+  @media screen and (max-width:768px) {
+    padding-top: 0;
+  }
 `;
 
 const DetailText = styled.div`
   color: white;
   font-size: 14px;
 
+  @media screen and (max-width: 768px) {
+    width: 380px;
+    font-size: 14px;
+  }
+
   ${(props) =>
     props.title &&
     css`
       font-size: 100px;
       margin-top: 12px;
+
+      @media screen and (max-width: 768px) {
+        font-size: 60px;
+      }
     `}
 
   ${(props) =>
@@ -134,5 +173,10 @@ const DetailText = styled.div`
       margin-top: 20px;
       font-size: 16px;
       font-weight: 800;
+
+      @media screen and (max-width: 768px) {
+        font-size: 12px;
+        // float : left;
+      }
     `}
 `;
