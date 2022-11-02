@@ -22,7 +22,7 @@ const Footer = () => {
         </FooterList>
         <FooterList diary>
           <div>This movieSearch portfolio made by Sa-Rang.</div>
-          <div>2022.10.25~2022.10.31</div>
+          <div>2022.10.25~updating</div>
         </FooterList>
       </FooterList>
     </div>

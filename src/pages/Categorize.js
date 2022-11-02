@@ -20,7 +20,7 @@ const Categorize = () => {
 
   useEffect(() => {
     dispatch(detailAction.getDetail());
-    dispatch(movieAction.getMovie());
+    dispatch(movieAction.getMovie()); 
   }, []);
 
   if (loading) {
