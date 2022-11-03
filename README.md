@@ -1,5 +1,5 @@
 deployed<br/>
-https://moviesurf.netlify.app/
+https://moviesurf2.netlify.app/
 
 This project used these techniques.<br/>
 1 / React<br/>
