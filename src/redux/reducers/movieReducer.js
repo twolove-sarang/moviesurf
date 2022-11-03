@@ -2,29 +2,31 @@ let initialState = {
   currentMovie: {},
   upComingMovie: {},
   popularMovie: {},
-  gotoDetailPage: {},
-  getReview: {},
+  getGenre: [],
+  loading: true,
 };
 
 function movieReducer(state = initialState, action) {
   let { type, payload } = action;
   switch (type) {
+    case "GET_MOVIES_REQUEST":
+      return { ...state, loading: true };
+
     case "GET_MOVIE_SUCCESS":
       return {
         ...state,
         currentMovie: payload.currentMovie,
         upComingMovie: payload.upComingMovie,
         popularMovie: payload.popularMovie,
-        // detailMovie : payload.detailMovie,
+        getGenre: payload.getGenre,
+        loading: false,
       };
 
-    case "GET_MOVIE_DETAIL_SUCCESS":
+    case "GET_MOVIE_FAILURE":
       return {
         ...state,
-        gotoDetailPage: payload.gotoDetailPage,
-        getReview: payload.getReview,
+        loading: false,
       };
-
     default:
       return { ...state };
   }

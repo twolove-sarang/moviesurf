@@ -1,41 +1,110 @@
 import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import styled, { css } from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const Card = styled.div`
-  // border: 1px solid black;
-  border-radius: 20px;
-  width: 250px;
-  height: 400px;
-  background-size: cover;
-  margin: 4px 4px;
-  cursor : pointer;
-
-  // &:hover{
-  //   width:300px;
-  //   // overflow : auto;
-  }
-`;
 
 const Cards = ({ item }) => {
-  const navigate = useNavigate()
+  const { getGenre } = useSelector((state) => state.movie);
+  const navigate = useNavigate();
   const gotoDetail = () => {
-    navigate(`${item.id}`)
-  }
+    navigate(`${item.id}`);
+  };
   return (
     <div>
-        <Card
+      <Card
         onClick={gotoDetail}
-          style={{
-            backgroundImage:
-              "url(" +
-              `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${item.poster_path}` +
-              ")",
-          }}
-        ></Card>
+        style={{
+          backgroundImage:
+            "url(" +
+            `https://www.themoviedb.org/t/p/w600_and_h900_bestv2${item.poster_path}` +
+            ")",
+        }}
+      >
+        <CardHover>
+          <CardTitle title>{item.title}</CardTitle>
+          <CardTitle flex>
+            {item.genre_ids && item.genre_ids.map((id) => (
+              <CardItem>{getGenre.genres.find((item) => item.id == id).name}</CardItem>
+            ))}
+          </CardTitle>
+        </CardHover>
+        {/* <CardTitle>{item.adult == true ? "adult" : "Under 18"}</CardTitle> */}
+      </Card>
     </div>
   );
 };
 
 export default Cards;
+
+const Card = styled.div`
+  border-radius: 20px;
+  width: 250px;
+  height: 400px;
+  background-size: cover;
+  margin: 4px 4px;
+  cursor: pointer;
+  @media screen and (max-width: 768px) {
+    width : 200px;
+    height : 300px;
+  }
+  
+`;
+
+const CardHover = styled.div`
+  opacity: 0;
+  &:hover {
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    background-color: black;
+    border-radius: 20px;
+    animation: fadeInFromNone 0.3s ease-in;
+  }
+
+  @keyframes fadeInFromNone {
+    0% {
+      display: none;
+      opacity: 0;
+    }
+
+    100% {
+      display: block;
+      opacity: 0.8;
+    }
+  }
+`;
+
+const CardTitle = styled.div`
+  color: white;
+  text-align: center;
+  font-weight: 900;
+  font-size: 30px;
+
+  ${(props) =>
+    props.flex &&
+    css`
+      display: flex;
+      justify-content: center;
+
+      & div {
+        margin: 3px;
+        background-color: #2853a6;
+        border-radius: 100px;
+        padding: 5px;
+        font-weight: 400;
+        font-size: 12px;
+      }
+    `}
+
+  ${(props) =>
+    props.title &&
+    css`
+      padding: 30px;
+      padding-top: 100px;
+    `}
+`;
+
+const CardItem = styled.div`
+  // margin-top:19px;
+`;

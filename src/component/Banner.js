@@ -1,18 +1,58 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+import TypeIt from "typeit-react";
 
+const Banner = ({ item }) => {
+  const navigate = useNavigate();
+  const gotoDetail = () => {
+    navigate(`${item.id}`);
+  };
+  return (
+    <BannerAlign>
+      <BannerStyle
+        // image
+        onClick={gotoDetail}
+        style={{
+          backgroundImage:
+            "url(" +
+            `https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${item.backdrop_path}` +
+            ")",
+        }}
+      >
+        <BannerText>
+          <TypeIt
+            options={{
+              speed: 100,
+              waitUntilVisible: true,
+            }}
+          >
+            <h1 className="Cafe24Ohsquare">{item.title}</h1>
+          </TypeIt>
+          {/* <p>{item.overview}</p> */}
+        </BannerText>
+      </BannerStyle>
+    </BannerAlign>
+  );
+};
+
+export default Banner;
 
 //배너 슬라이드 만들기
-const BannerSlide = styled.div`
-  width : 3870;
-`
-
 const BannerStyle = styled.div`
   width: 1290px;
   height: 600px;
   border-radius: 30px;
-  margin: 30px;
+  margin: 0 10px;
   background-size: cover;
+  cursor: pointer;
+
+  @media screen and (max-width: 768px) {
+    width: 700px;
+    height: 350px;
+    margin: 8px;
+    overflow: hidden;
+  }
 `;
 
 const BannerAlign = styled.div`
@@ -25,36 +65,15 @@ const BannerText = styled.div`
   width: 450px;
   color: white;
   position: absolute;
-  top: 350px;
+  top: 200px;
   left: 100px;
+
+  .Cafe24Ohsquare {
+    font-size: 50px;
+  }
+
+  @media screen and (max-width: 768px) {
+    top: 110px;
+    left: 60px;
+  }
 `;
-
-//배너(포스터이미지) 캐러셸 안에 보이게
-//캐러셸 디자인, 페이지네이션
-//글자가 사진 안으로 오게 하려면....?
-//이미지랑 글자가 같이 움직이게 하기
-//전체 width 고정
-const Banner = ({ movie }) => {
-  // console.log("movie", movie);
-  return (
-    <BannerSlide>
-      <BannerAlign>
-        <BannerStyle
-          image
-          style={{
-            backgroundImage:
-              "url(" +
-              `https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces${movie.backdrop_path}` +
-              ")",
-          }}
-        ></BannerStyle>
-        <BannerText>
-          <h1>{movie.title}</h1>
-          <p>{movie.overview}</p>
-        </BannerText>
-      </BannerAlign>
-    </BannerSlide>
-  );
-};
-
-export default Banner;

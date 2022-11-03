@@ -1,62 +1,140 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import styled, { css } from "styled-components";
+import { keyframes } from "styled-components";
 import Cards from "./Cards";
-
-const Card = styled.div`
-  // border: 1px solid black;
-  // border-radius: 20px;
-  // width: 250px;
-  // height: 400px;
-  // background-size: cover;
-  // margin: 4px 4px;
-`;
-
-//더보기 정렬
-const CardAlign = styled.div`
-  display: flexbox;
-  overflow: scroll;
-`;
-
-const CardTitle = styled.div`
-  color: white;
-  font-size: 25px;
-  font-weight: 700;
-  width: 1240px;
-  text-align: left;
-  margin: 40px auto 10px;
-`;
-
-const CardMore = styled.div`
-  font-size: 18px;
-  color: #9f9f9f;
-  // width: 50px;
-  display: flex;
-  align-items: center;
-  margin-top: 24px;
-  cursor : pointer;
-`;
 
 // card를 5개씩 보여주고 싶어!
 const CardSection = ({ movie, name }) => {
-  console.log("무비?", movie);
+  const navigate = useNavigate();
+  // console.log("무비무비",movie)
+  const gotoDetailPage = () => {
+    navigate("/categorize");
+  };
   return (
     <div>
-      <CardAlign>
+      <CardMain>
         <CardTitle>{name}</CardTitle>
-        <CardMore>더보기</CardMore>
-      </CardAlign>
+        <CardMore onClick={(movie) => gotoDetailPage(movie)}>더보기</CardMore>
+        {/* <CardArrow>&lt;</CardArrow>
+          <CardArrow>&gt;</CardArrow> */}
+      </CardMain>
       <CardAlign>
-        {movie.results.map((item, index) => (
-          <Cards key={index} item={item} />
-        ))}
-        {/* <Cards/>
-        <Cards/>
-        <Cards/>
-        <Cards/>
-        <Cards/> */}
+        {movie.results &&
+          movie.results.map((item, index) => (
+            <CardKeyframes>
+              <Cards key={index} item={item} />
+            </CardKeyframes>
+          ))}
       </CardAlign>
     </div>
   );
 };
 
 export default CardSection;
+
+//더보기 정렬
+
+const alignFade = keyframes`
+  0%{
+    opacity : 0;
+    transform : translateY(2em);
+  }
+  100%{
+    opacity: 1;
+    transform : translateY(0);
+  }
+`;
+
+const CardKeyframes = styled.div`
+  animation: ${alignFade} 1s;
+`;
+
+const CardAlign = styled.div`
+  display: flexbox;
+  justify-content: space-between;
+  overflow: auto;
+  // height: 450px;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: black;
+    border-radius: 30px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: white;
+    border-radius: 30px;
+  }
+
+  &::-webkit-scrollbar-corner {
+    opacity: 0;
+  }
+
+  @media screen and (max-width: 768px) {
+    width: 740px;
+    margin-left: 30px;
+  }
+`;
+
+const CardMain = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+`;
+
+const CardTitle = styled.div`
+  color: white;
+  font-size: 25px;
+  font-weight: 700;
+  margin: 10px;
+  padding-top: 10px;
+
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+    width: 580px;
+  }
+`;
+
+const CardMore = styled.div`
+  font-size: 18px;
+  color: #f1f1f1;
+  cursor: pointer;
+  margin-top: 30px;
+  margin-right: 10px;
+
+  &:hover {
+    font-weight: 800;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+  }
+`;
+
+const CardArrow = styled.div`
+  width: 26px;
+  height: 20px;
+  color: #9f9f9f;
+  font-weight: 400;
+  text-align: center;
+  font-size: 15px;
+  line-height: 16.5px;
+  // border:1px solid #9f9f9f;
+  border-radius: 50px;
+  margin-top: 24px;
+  margin-left: 5px;
+  cursor: pointer;
+
+  @media screen and (max-width: 768px) {
+    font-size: 12px;
+  }
+
+  &:hover {
+    background-color: #9f9f9f;
+    color: #1f1f1f;
+  }
+`;
